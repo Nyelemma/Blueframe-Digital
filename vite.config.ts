@@ -13,11 +13,33 @@ const stripModuleAttrs: Plugin = {
     const file = resolve(process.cwd(), "dist", "index.html");
     if (!existsSync(file)) return;
     const original = readFileSync(file, "utf-8");
-    const stripped = original
+
+    // Pull the inlined bundle script out of <head> and re-insert it
+    // immediately before </body>. Stripping `type="module"` turns it into
+    // a sync script, and inline scripts in <head> run before #root exists.
+    const bundleScriptRe =
+      /<script\b[^>]*\btype="module"[^>]*>[\s\S]*?<\/script>/i;
+    let html = original;
+    const match = html.match(bundleScriptRe);
+    let bundleScript = match ? match[0] : "";
+    if (match) html = html.replace(bundleScriptRe, "");
+
+    // Strip module/crossorigin attrs on whichever script remains.
+    const normalised = (bundleScript || "")
       .replace(/<script\s+type="module"\s+crossorigin>/g, "<script>")
       .replace(/<script\s+type="module">/g, "<script>")
       .replace(/\scrossorigin\b/g, "");
-    if (stripped !== original) writeFileSync(file, stripped);
+
+    if (normalised) {
+      html = html.replace(/<\/body>/i, `${normalised}\n  </body>`);
+    }
+
+    html = html
+      .replace(/<script\s+type="module"\s+crossorigin>/g, "<script>")
+      .replace(/<script\s+type="module">/g, "<script>")
+      .replace(/\scrossorigin\b/g, "");
+
+    if (html !== original) writeFileSync(file, html);
   },
 };
 
