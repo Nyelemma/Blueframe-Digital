@@ -57,7 +57,7 @@ export default function Hero() {
           className="mx-auto mt-6 max-w-2xl text-lg text-slate-600 md:text-xl dark:text-slate-300"
         >
           We build high-performing websites for local businesses, starting from
-          just <span className="font-semibold text-[--color-navy] dark:text-white">£99</span>.
+          just <span className="font-semibold text-navy dark:text-white">£99</span>.
           Fast, modern, mobile-first — without the agency price tag.
         </motion.p>
 
@@ -75,7 +75,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3.5 text-base font-semibold text-[--color-navy] shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift dark:border-white/10 dark:bg-white/5 dark:text-white"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3.5 text-base font-semibold text-navy shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift dark:border-white/10 dark:bg-white/5 dark:text-white"
           >
             Get a free quote
           </a>

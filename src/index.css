@@ -34,12 +34,12 @@
   }
 
   body {
-    @apply bg-[--color-surface] text-[--color-navy] antialiased font-sans;
+    @apply bg-surface text-navy antialiased font-sans;
     font-feature-settings: "ss01", "cv11";
   }
 
   .dark body {
-    @apply bg-[--color-surface-dark] text-slate-100;
+    @apply bg-surface-dark text-slate-100;
   }
 
   ::selection {

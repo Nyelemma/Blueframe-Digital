@@ -43,7 +43,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white shadow-soft dark:divide-white/10 dark:border-white/10 dark:bg-[--color-navy-soft]">
+        <div className="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white shadow-soft dark:divide-white/10 dark:border-white/10 dark:bg-navy-soft">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (

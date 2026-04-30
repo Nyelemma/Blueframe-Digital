@@ -52,7 +52,7 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift dark:border-white/10 dark:bg-[--color-navy-soft]"
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift dark:border-white/10 dark:bg-navy-soft"
             >
               <span className="text-brand-gradient text-sm font-semibold tracking-[0.2em]">
                 STEP {s.n}

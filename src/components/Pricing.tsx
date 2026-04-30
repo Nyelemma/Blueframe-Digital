@@ -88,11 +88,11 @@ export default function Pricing() {
               className={`relative flex flex-col rounded-2xl border p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift ${
                 t.highlight
                   ? "border-transparent bg-brand-gradient text-white"
-                  : "border-slate-200 bg-white text-[--color-navy] dark:border-white/10 dark:bg-[--color-navy-soft] dark:text-slate-100"
+                  : "border-slate-200 bg-white text-navy dark:border-white/10 dark:bg-navy-soft dark:text-slate-100"
               }`}
             >
               {t.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-[--color-navy] shadow-soft">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-navy shadow-soft">
                   Most popular
                 </span>
               )}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   <li key={f} className="flex items-start gap-2.5">
                     <svg
                       className={`mt-0.5 h-5 w-5 flex-none ${
-                        t.highlight ? "text-white" : "text-[--color-brand-from]"
+                        t.highlight ? "text-white" : "text-brand-from"
                       }`}
                       viewBox="0 0 24 24"
                       fill="none"
@@ -152,7 +152,7 @@ export default function Pricing() {
                 href={t.href}
                 className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition hover:-translate-y-0.5 ${
                   t.highlight
-                    ? "bg-white text-[--color-navy] shadow-soft hover:shadow-lift"
+                    ? "bg-white text-navy shadow-soft hover:shadow-lift"
                     : "bg-brand-gradient text-white shadow-soft hover:shadow-lift"
                 }`}
               >

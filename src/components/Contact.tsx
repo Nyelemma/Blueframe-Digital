@@ -32,7 +32,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="overflow-hidden rounded-3xl bg-brand-gradient p-1 shadow-lift"
         >
-          <div className="grid grid-cols-1 gap-10 rounded-[calc(1.5rem-2px)] bg-white p-8 md:grid-cols-2 md:p-12 dark:bg-[--color-navy-soft]">
+          <div className="grid grid-cols-1 gap-10 rounded-[calc(1.5rem-2px)] bg-white p-8 md:grid-cols-2 md:p-12 dark:bg-navy-soft">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gradient">
                 Let's build it
@@ -54,7 +54,7 @@ export default function Contact() {
 
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[--color-brand-to] hover:underline dark:text-[--color-brand-from]"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-to hover:underline dark:text-brand-from"
               >
                 Or email {CONTACT_EMAIL}
                 <span aria-hidden="true">→</span>
@@ -95,7 +95,7 @@ export default function Contact() {
                     setForm((f) => ({ ...f, message: e.target.value }))
                   }
                   placeholder="A short description of your business and what you'd like the site to do."
-                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-[--color-navy] shadow-soft outline-none transition focus:border-[--color-brand-from] focus:ring-2 ring-brand dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-slate-400"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-navy shadow-soft outline-none transition focus:border-brand-from focus:ring-2 ring-brand dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-slate-400"
                 />
               </label>
               <button
@@ -135,7 +135,7 @@ function Field({
     <label className="grid gap-2 text-sm">
       <span className="font-medium text-slate-700 dark:text-slate-200">
         {label}
-        {required && <span className="text-[--color-brand-from]"> *</span>}
+        {required && <span className="text-brand-from"> *</span>}
       </span>
       <input
         type={type}
@@ -143,7 +143,7 @@ function Field({
         value={value}
         required={required}
         onChange={(e) => onChange(e.target.value)}
-        className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-[--color-navy] shadow-soft outline-none transition focus:border-[--color-brand-from] focus:ring-2 ring-brand dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-slate-400"
+        className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-navy shadow-soft outline-none transition focus:border-brand-from focus:ring-2 ring-brand dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-slate-400"
       />
     </label>
   );
@@ -153,7 +153,7 @@ function Bullet({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-2.5">
       <svg
-        className="mt-0.5 h-5 w-5 flex-none text-[--color-brand-from]"
+        className="mt-0.5 h-5 w-5 flex-none text-brand-from"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

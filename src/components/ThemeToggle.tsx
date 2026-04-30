@@ -12,7 +12,7 @@ export default function ThemeToggle({ theme, onToggle }: Props) {
       type="button"
       onClick={onToggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative inline-grid h-10 w-10 place-items-center rounded-full border border-slate-200/70 bg-white text-[--color-navy] shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift focus:outline-none focus-visible:ring-2 ring-brand dark:border-white/10 dark:bg-white/5 dark:text-slate-100"
+      className="relative inline-grid h-10 w-10 place-items-center rounded-full border border-slate-200/70 bg-white text-navy shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift focus:outline-none focus-visible:ring-2 ring-brand dark:border-white/10 dark:bg-white/5 dark:text-slate-100"
     >
       <AnimatePresence mode="wait" initial={false}>
         {isDark ? (

@@ -91,7 +91,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift dark:border-white/10 dark:bg-[--color-navy-soft]"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift dark:border-white/10 dark:bg-navy-soft"
             >
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient text-white shadow-soft">
                 <svg

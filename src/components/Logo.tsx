@@ -15,7 +15,7 @@ export default function Logo({
       aria-label="Blueframe Digital"
     >
       <span
-        className="grid place-items-center rounded-xl bg-[--color-navy] shadow-soft"
+        className="grid place-items-center rounded-xl bg-navy shadow-soft"
         style={{ width: size + 14, height: size + 14 }}
       >
         <svg

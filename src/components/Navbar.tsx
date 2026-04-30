@@ -29,7 +29,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
     <header
       className={`sticky top-0 z-40 w-full transition-all ${
         scrolled
-          ? "backdrop-blur-md bg-white/75 dark:bg-[--color-surface-dark]/70 border-b border-slate-200/70 dark:border-white/10"
+          ? "backdrop-blur-md bg-white/75 dark:bg-surface-dark/70 border-b border-slate-200/70 dark:border-white/10"
           : "bg-transparent"
       }`}
     >
@@ -46,7 +46,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
             <a
               key={l.href}
               href={l.href}
-              className="text-slate-600 hover:text-[--color-navy] dark:text-slate-300 dark:hover:text-white transition"
+              className="text-slate-600 hover:text-navy dark:text-slate-300 dark:hover:text-white transition"
             >
               {l.label}
             </a>
@@ -66,7 +66,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden inline-grid h-10 w-10 place-items-center rounded-full border border-slate-200/70 bg-white text-[--color-navy] shadow-soft dark:border-white/10 dark:bg-white/5 dark:text-slate-100"
+            className="md:hidden inline-grid h-10 w-10 place-items-center rounded-full border border-slate-200/70 bg-white text-navy shadow-soft dark:border-white/10 dark:bg-white/5 dark:text-slate-100"
           >
             <svg
               width="18"
@@ -97,7 +97,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-slate-200/70 dark:border-white/10 bg-white/95 dark:bg-[--color-surface-dark]/95 backdrop-blur">
+        <div className="md:hidden border-t border-slate-200/70 dark:border-white/10 bg-white/95 dark:bg-surface-dark/95 backdrop-blur">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4 text-sm font-medium">
             {links.map((l) => (
               <a
