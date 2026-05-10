@@ -31,7 +31,9 @@ const stripModuleAttrs: Plugin = {
       .replace(/\scrossorigin\b/g, "");
 
     if (normalised) {
-      html = html.replace(/<\/body>/i, `${normalised}\n  </body>`);
+      // Use a function replacer: a string replacer treats `$&` / `$'` etc. inside
+      // the bundle as special (React's child-key helper uses `"$&/"`), which corrupts JS.
+      html = html.replace(/<\/body>/i, () => `${normalised}\n  </body>`);
     }
 
     html = html

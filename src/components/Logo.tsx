@@ -2,13 +2,20 @@ type LogoProps = {
   size?: number;
   withWordmark?: boolean;
   className?: string;
+  theme?: "light" | "dark";
 };
 
 export default function Logo({
   size = 36,
   withWordmark = true,
   className = "",
+  theme = "light",
 }: LogoProps) {
+  const line1 =
+    theme === "dark" ? "text-white" : "text-navy";
+  const line2 =
+    theme === "dark" ? "text-slate-300" : "text-slate-600";
+
   return (
     <span
       className={`inline-flex items-center gap-3 ${className}`}
@@ -48,14 +55,18 @@ export default function Logo({
       </span>
       {withWordmark && (
         <span className="leading-none select-none">
-          <span className="block text-[15px] font-semibold tracking-[0.18em] text-navy dark:text-white">
+          <span
+            className={`block text-[15px] font-semibold tracking-[0.18em] ${line1}`}
+          >
             BLUEFRAME
           </span>
           <span
             className="mt-1 block h-[2px] w-full bg-brand-gradient rounded-full"
             aria-hidden="true"
           />
-          <span className="mt-1 block text-[10px] font-medium tracking-[0.32em] text-slate-600 dark:text-slate-300">
+          <span
+            className={`mt-1 block text-[10px] font-medium tracking-[0.32em] ${line2}`}
+          >
             DIGITAL
           </span>
         </span>

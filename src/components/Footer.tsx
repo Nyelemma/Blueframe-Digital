@@ -1,12 +1,16 @@
 import Logo from "./Logo";
 
-export default function Footer() {
+type Props = {
+  theme: "light" | "dark";
+};
+
+export default function Footer({ theme }: Props) {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-slate-200 bg-white dark:border-white/10 dark:bg-surface-dark">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-3">
-          <Logo size={28} />
+          <Logo size={28} theme={theme} />
           <p className="max-w-sm text-sm text-slate-500 dark:text-slate-400">
             Premium websites for local businesses, starting from £99. UK-built,
             UK-supported.

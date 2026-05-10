@@ -38,7 +38,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
           href="#top"
           className="rounded-xl focus:outline-none focus-visible:ring-2 ring-brand"
         >
-          <Logo />
+          <Logo theme={theme} />
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">

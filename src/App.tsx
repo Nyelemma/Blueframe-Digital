@@ -58,7 +58,7 @@ export default function App() {
         <FAQ />
         <Contact />
       </main>
-      <Footer />
+      <Footer theme={theme} />
       <FlickerOverlay state={flicker} />
     </div>
   );
