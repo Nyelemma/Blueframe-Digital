@@ -48,14 +48,14 @@ export default function Logo({
       </span>
       {withWordmark && (
         <span className="leading-none select-none">
-          <span className="block text-[15px] font-semibold tracking-[0.18em] text-white">
+          <span className="block text-[15px] font-semibold tracking-[0.18em] text-navy dark:text-white">
             BLUEFRAME
           </span>
           <span
             className="mt-1 block h-[2px] w-full bg-brand-gradient rounded-full"
             aria-hidden="true"
           />
-          <span className="mt-1 block text-[10px] font-medium tracking-[0.32em] text-slate-300">
+          <span className="mt-1 block text-[10px] font-medium tracking-[0.32em] text-slate-600 dark:text-slate-300">
             DIGITAL
           </span>
         </span>
