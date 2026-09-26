@@ -29,8 +29,8 @@ const features = [
   },
   {
     icon: "manage",
-    title: "Easy To Manage",
-    text: "Websites built with practical content management and future updates in mind.",
+    title: "Easy To Update",
+    text: "Straightforward to keep current after launch, with support when you want changes.",
   },
   {
     icon: "secure",

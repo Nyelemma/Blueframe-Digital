@@ -41,7 +41,7 @@ export default function Contact() {
             {CONTACT_EMAIL}
           </a>
           <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            Prefer to write it yourself? Email us directly. Websites start from £199. Social media management starts from £99 a month.
+            Prefer to write it yourself? Email us directly. Websites start from £199. Online stores start from £15 a month. Social media management starts from £99 a month.
           </p>
           <p className="mt-6 text-sm text-slate-500">
             Working with businesses in Lancaster, Morecambe, Morecambe Bay and across Lancashire.

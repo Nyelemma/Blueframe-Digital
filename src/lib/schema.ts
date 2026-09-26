@@ -15,16 +15,17 @@ export function organizationNode() {
     name: SITE_NAME,
     url: `${SITE_URL}/`,
     email: CONTACT_EMAIL,
-    logo: absoluteUrl("/brand/blueframe-logo.svg"),
+    logo: absoluteUrl("/brand/blueframe-logo-light.png"),
     image: absoluteUrl("/og.png"),
     description:
-      "Blueframe Digital designs modern, fast websites for small and local businesses, with websites from £199 and social media management from £99 a month.",
+      "Blueframe Digital designs modern, fast websites for small and local businesses, with websites from £199, online stores from £15 a month, and social media management from £99 a month.",
     areaServed,
     priceRange: "££",
     knowsAbout: [
       "Web design",
       "Small business websites",
       "Local SEO",
+      "Online stores",
       "Social media management",
     ],
     address: {

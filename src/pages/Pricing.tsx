@@ -52,7 +52,7 @@ const tiers = [
     features: [
       "Booking systems",
       "Membership systems",
-      "Ecommerce",
+      "Larger ecommerce builds",
       "Advanced integrations",
       "Custom functionality",
     ],
@@ -60,6 +60,13 @@ const tiers = [
     to: "/contact?need=other&budget=custom",
     tone: "light" as const,
   },
+];
+
+const store = [
+  "Product pages for what you sell",
+  "A store that works on phones",
+  "Set up for a small business",
+  "Price agreed before anything goes live",
 ];
 
 const social = [
@@ -84,6 +91,11 @@ export default function Pricing() {
           serviceNode(
             "Website design",
             "Professional websites for small businesses from £199.",
+            "/pricing",
+          ),
+          serviceNode(
+            "Online stores",
+            "Online stores for small businesses from £15 a month, cheaper than Shopify.",
             "/pricing",
           ),
           serviceNode(
@@ -141,28 +153,46 @@ export default function Pricing() {
         ))}
       </div>
 
-      <div className="mx-auto max-w-[1120px] px-5 pb-16 sm:px-6">
-        <article className="grid gap-8 rounded-[1.6rem] border border-slate-200 p-6 sm:p-8 md:grid-cols-[0.8fr_1.2fr] md:items-center dark:border-white/10">
-          <div>
-            <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Monthly</p>
-            <h2 className="mt-2 text-4xl font-semibold tracking-[-0.04em]">From £99/month</h2>
-            <h3 className="mt-3 text-lg font-semibold">Social Media</h3>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-              For businesses that want a consistent presence without doing the posting themselves.
-            </p>
-            <Link to="/contact?need=social&budget=social" className={`${primaryBtn} mt-6`}>
-              Manage My Socials
-              <Icon name="arrow" className="h-4 w-4" />
-            </Link>
-          </div>
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {social.map((item) => (
-              <li key={item} className="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 text-sm dark:border-white/10">
-                <Icon name="check" className="h-4 w-4 text-brand-deep dark:text-brand" />
+      <div className="mx-auto grid max-w-[1120px] gap-4 px-5 pb-16 sm:px-6 lg:grid-cols-2">
+        <article id="stores" className="flex flex-col rounded-[1.6rem] border border-transparent bg-night p-6 text-white sm:p-8">
+          <p className="text-[11px] font-semibold tracking-[0.18em] text-[#8eb6ff] uppercase">Monthly</p>
+          <h2 className="mt-2 text-4xl font-semibold tracking-[-0.04em]">From £15/month</h2>
+          <h3 className="mt-3 text-lg font-semibold">Online stores</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-300">
+            A proper online store for a small business. Cheaper than Shopify.
+          </p>
+          <ul className="mt-6 space-y-2.5 text-sm">
+            {store.map((item) => (
+              <li key={item} className="flex gap-2">
+                <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-[#8eb6ff]" />
                 {item}
               </li>
             ))}
           </ul>
+          <Link to="/contact?need=store&budget=store" className={`${primaryBtnLight} mt-8 w-full sm:w-auto`}>
+            Start a Store
+            <Icon name="arrow" className="h-4 w-4" />
+          </Link>
+        </article>
+        <article className="flex flex-col rounded-[1.6rem] border border-slate-200 p-6 sm:p-8 dark:border-white/10">
+          <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Monthly</p>
+          <h2 className="mt-2 text-4xl font-semibold tracking-[-0.04em]">From £99/month</h2>
+          <h3 className="mt-3 text-lg font-semibold">Social Media</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            For businesses that want a consistent presence without doing the posting themselves.
+          </p>
+          <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+            {social.map((item) => (
+              <li key={item} className="flex items-center gap-2 text-sm">
+                <Icon name="check" className="h-4 w-4 shrink-0 text-brand-deep dark:text-brand" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <Link to="/contact?need=social&budget=social" className={`${primaryBtn} mt-8 w-full sm:w-auto`}>
+            Manage My Socials
+            <Icon name="arrow" className="h-4 w-4" />
+          </Link>
         </article>
         <p className="mt-6 text-sm text-slate-500">
           Hosting and domain names are discussed separately. Nothing starts until the price is agreed.

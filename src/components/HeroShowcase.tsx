@@ -1,15 +1,51 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import { useReducedMotion } from "framer-motion";
 import BrowserFrame from "./BrowserFrame";
-import { ArctaMini, CoachingMini, FootballMini, GardenMini, GasMini, PetsMini } from "./MiniSites";
+import { assetUrl } from "../lib/site";
 
 const scenes = [
-  { id: "plumbing", label: "Plumbing", url: "morecambegas.co.uk", node: <GasMini /> },
-  { id: "football", label: "Football", url: "morecambegirlsfc.com", node: <FootballMini /> },
-  { id: "landscaping", label: "Landscaping", url: "gpgardencare.co.uk", node: <GardenMini /> },
-  { id: "coaching", label: "Coaching", url: "mncoaching.co.uk", node: <CoachingMini /> },
-  { id: "pets", label: "Pet services", url: "happytailsnorthwest.com", node: <PetsMini /> },
-  { id: "professional", label: "Professional", url: "arctagroup.ae", node: <ArctaMini /> },
+  {
+    id: "plumbing",
+    label: "Plumbing",
+    url: "morecambegas.co.uk",
+    image: "gas",
+    name: "Morecambe Gas Services",
+  },
+  {
+    id: "football",
+    label: "Football",
+    url: "morecambegirlsfc.com",
+    image: "fc-girls",
+    name: "Morecambe Girls FC",
+  },
+  {
+    id: "landscaping",
+    label: "Landscaping",
+    url: "gpgardencare.co.uk",
+    image: "garden",
+    name: "GP Garden Care",
+  },
+  {
+    id: "coaching",
+    label: "Coaching",
+    url: "mncoaching.co.uk",
+    image: "coaching",
+    name: "MN Coaching",
+  },
+  {
+    id: "pets",
+    label: "Pet services",
+    url: "happytailsnorthwest.com",
+    image: "happytails",
+    name: "Happy Tails Northwest",
+  },
+  {
+    id: "professional",
+    label: "Professional",
+    url: "arctagroup.ae",
+    image: "arcta",
+    name: "Arcta Group",
+  },
 ];
 
 const slots = {
@@ -25,6 +61,21 @@ function slotFor(index: number, active: number) {
   if (index === (active + count - 1) % count) return "left";
   if (index === (active + 1) % count) return "right";
   return "hidden";
+}
+
+function Shot({ image, name }: { image: string; name: string }) {
+  return (
+    <img
+      src={assetUrl(`previews/${image}-sm.webp`)}
+      srcSet={`${assetUrl(`previews/${image}-sm.webp`)} 840w, ${assetUrl(`previews/${image}.webp`)} 1400w`}
+      sizes="(min-width: 1024px) 440px, 86vw"
+      alt={`Homepage of the ${name} website`}
+      width={1400}
+      height={875}
+      decoding="async"
+      className="h-full w-full object-cover object-top"
+    />
+  );
 }
 
 export default function HeroShowcase() {
@@ -61,16 +112,14 @@ export default function HeroShowcase() {
       onBlur={() => setPaused(false)}
     >
       <p className="sr-only" aria-live="polite">
-        Showing a {scenes[active].label.toLowerCase()} website preview
+        Showing the {scenes[active].name} website
       </p>
 
       <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
         {scenes.map((scene) => (
           <div key={scene.id} className="w-[86%] shrink-0 snap-center">
             <BrowserFrame url={scene.url}>
-              <div className="h-full" aria-hidden="true">
-                {scene.node}
-              </div>
+              <Shot image={scene.image} name={scene.name} />
             </BrowserFrame>
             <p className="mt-3 text-center text-xs font-medium tracking-[0.16em] text-slate-500 uppercase">
               {scene.label}
@@ -84,10 +133,7 @@ export default function HeroShowcase() {
         onMouseMove={onMove}
         style={{ ["--px" as string]: 0, ["--py" as string]: 0 }}
       >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-6"
-        >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-6">
           <span className="absolute top-0 left-0 h-5 w-5 border-t border-l border-brand/80" />
           <span className="absolute top-0 right-0 h-5 w-5 border-t border-r border-brand/80" />
           <span className="absolute bottom-0 left-0 h-5 w-5 border-b border-l border-brand/80" />
@@ -114,7 +160,7 @@ export default function HeroShowcase() {
               }}
             >
               <BrowserFrame url={scene.url}>
-                <div className="h-full">{scene.node}</div>
+                <Shot image={scene.image} name={scene.name} />
               </BrowserFrame>
             </div>
           );

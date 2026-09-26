@@ -58,7 +58,7 @@ export const PAGE_META = {
     path: "/pricing",
     title: "Website Design Pricing | Blueframe Digital",
     description:
-      "Websites from £199 and social media management from £99 a month. Clear starting prices for small businesses in Lancaster, Morecambe and Lancashire.",
+      "Websites from £199, online stores from £15 a month, and social media management from £99 a month. Clear starting prices for small businesses in Lancaster, Morecambe and Lancashire.",
   },
   about: {
     path: "/about",

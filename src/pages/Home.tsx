@@ -40,6 +40,11 @@ export default function Home() {
             "/",
           ),
           serviceNode(
+            "Online stores",
+            "Online stores for small businesses from £15 a month, cheaper than Shopify.",
+            "/pricing",
+          ),
+          serviceNode(
             "Social media management",
             "Content planning, captions and posting for small businesses, from £99 a month.",
             "/social-media",

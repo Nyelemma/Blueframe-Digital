@@ -7,6 +7,7 @@ import Icon from "./Icons";
 const NEEDS = [
   "Website",
   "Website redesign",
+  "Online store",
   "Social media",
   "Both",
   "Something else",
@@ -15,6 +16,7 @@ const NEEDS = [
 const BUDGETS = [
   "Website from £199",
   "Website from £399",
+  "Online store from £15/month",
   "Custom website",
   "Social media from £99/month",
   "Not sure yet",
@@ -23,6 +25,7 @@ const BUDGETS = [
 const needFromQuery: Record<string, (typeof NEEDS)[number]> = {
   website: "Website",
   redesign: "Website redesign",
+  store: "Online store",
   social: "Social media",
   both: "Both",
   other: "Something else",
@@ -31,6 +34,7 @@ const needFromQuery: Record<string, (typeof NEEDS)[number]> = {
 const budgetFromQuery: Record<string, (typeof BUDGETS)[number]> = {
   starter: "Website from £199",
   business: "Website from £399",
+  store: "Online store from £15/month",
   custom: "Custom website",
   social: "Social media from £99/month",
 };
