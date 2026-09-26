@@ -146,7 +146,7 @@ export default function ContactForm() {
   const copy = async () => {
     if (!ready) return;
     try {
-      await navigator.clipboard.writeText(`To: ${CONTACT_EMAIL}\n\n${ready}`);
+      await navigator.clipboard.writeText(ready);
       setCopied(true);
       setCopyError(false);
     } catch {
@@ -165,11 +165,7 @@ export default function ContactForm() {
         </p>
         <h2 className="mt-3 text-2xl font-semibold tracking-tight">Your enquiry is prepared.</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-          Your email app should open with the message ready. If it doesn't, copy it and send it to{" "}
-          <a className="font-medium text-brand-deep dark:text-brand" href={`mailto:${CONTACT_EMAIL}`}>
-            {CONTACT_EMAIL}
-          </a>
-          .
+          Your email app should open with the message ready. If it doesn't, copy the message and use the button below.
         </p>
         <textarea
           readOnly

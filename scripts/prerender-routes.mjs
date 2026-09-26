@@ -115,7 +115,6 @@ function jsonLd(page) {
         "@type": ["Organization", "ProfessionalService"],
         name: "Blueframe Digital",
         url: `${site}/`,
-        email: "mikeyjnye@gmail.com",
         areaServed: { "@type": "Country", name: "United Kingdom" },
         address: {
           "@type": "PostalAddress",

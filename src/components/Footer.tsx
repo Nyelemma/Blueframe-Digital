@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import WhatsAppButton from "./WhatsAppButton";
-import { CONTACT_EMAIL, FOOTER_LINKS } from "../lib/site";
+import { FOOTER_LINKS } from "../lib/site";
 
 export default function Footer() {
   return (
@@ -12,13 +12,7 @@ export default function Footer() {
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             Modern websites and digital services for small businesses.
           </p>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mt-3 inline-block text-sm font-medium text-brand-deep hover:text-brand dark:text-brand"
-          >
-            {CONTACT_EMAIL}
-          </a>
-          <WhatsAppButton className="mt-4" />
+          <WhatsAppButton className="mt-5" />
         </div>
         <nav aria-label="Footer" className="md:justify-self-end">
           <ul className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm">

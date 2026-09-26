@@ -1,4 +1,4 @@
-import { absoluteUrl, CONTACT_EMAIL, SITE_NAME, SITE_URL } from "./site";
+import { absoluteUrl, SITE_NAME, SITE_URL } from "./site";
 
 const areaServed = { "@type": "Country", name: "United Kingdom" };
 
@@ -8,7 +8,6 @@ export function organizationNode() {
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: `${SITE_URL}/`,
-    email: CONTACT_EMAIL,
     logo: absoluteUrl("/brand/blueframe-logo-light.png"),
     image: absoluteUrl("/og.png"),
     description:
