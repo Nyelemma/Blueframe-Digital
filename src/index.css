@@ -29,10 +29,12 @@
   html {
     scroll-behavior: smooth;
     scrollbar-color: #94a3b8 transparent;
+    overflow-x: clip;
   }
 
   body {
     @apply bg-paper text-ink antialiased font-sans;
+    overflow-x: clip;
     font-feature-settings: "ss01", "cv11";
     text-rendering: optimizeLegibility;
   }

@@ -38,16 +38,19 @@ export default function Home() {
             "Small business web design",
             "Modern, mobile-first websites for small and local businesses, from £199.",
             "/",
+            "199",
           ),
           serviceNode(
             "Online stores",
             "Online stores for small businesses from £15 a month, cheaper than Shopify.",
             "/pricing",
+            "15",
           ),
           serviceNode(
             "Social media management",
             "Content planning, captions and posting for small businesses, from £99 a month.",
             "/social-media",
+            "99",
           ),
           breadcrumbNode([{ name: "Home", path: "/" }]),
         )}
@@ -63,38 +66,38 @@ export default function Home() {
           }}
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-[1120px] items-center gap-12 px-5 pt-6 pb-16 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:pt-8 lg:pb-20">
-          <div>
+        <div className="relative mx-auto grid max-w-[1120px] items-center gap-10 px-5 pt-2 pb-14 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-12 lg:pt-8 lg:pb-20">
+          <div className="min-w-0">
             <motion.p {...rise(0)} className="text-sm font-medium text-slate-500 dark:text-slate-400">
               Built for businesses. Designed to perform.
             </motion.p>
             <motion.h1
               {...rise(0.06)}
-              className="mt-5 text-[clamp(2.7rem,6vw,4.7rem)] font-semibold leading-[0.94] tracking-[-0.048em]"
+              className="mt-4 text-[2.35rem] font-semibold leading-[0.96] tracking-[-0.045em] sm:mt-5 sm:text-6xl sm:leading-[0.94] lg:text-[4.7rem]"
             >
               Websites that make small businesses look big.
             </motion.h1>
             <motion.p
               {...rise(0.12)}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+              className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg dark:text-slate-300"
             >
               High-quality, modern websites built for small and local businesses. No huge
               agency fees. Websites from £199.
             </motion.p>
-            <motion.div {...rise(0.18)} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact" className={primaryBtn}>
+            <motion.div {...rise(0.18)} className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+              <Link to="/contact" className={`${primaryBtn} w-full sm:w-auto`}>
                 Start Your Website
                 <Icon name="arrow" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
-              <Link to="/work" className={secondaryBtn}>
+              <Link to="/work" className={`${secondaryBtn} w-full sm:w-auto`}>
                 View Our Work
               </Link>
             </motion.div>
-            <motion.p {...rise(0.24)} className="mt-6 text-sm text-slate-500">
-              Web design for businesses in Lancaster, Morecambe and across Lancashire.
+            <motion.p {...rise(0.24)} className="mt-5 text-sm text-slate-500 sm:mt-6">
+              Websites, online stores and social media for small businesses.
             </motion.p>
           </div>
-          <motion.div {...rise(0.1)}>
+          <motion.div {...rise(0.1)} className="min-w-0">
             <HeroShowcase />
           </motion.div>
         </div>

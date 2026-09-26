@@ -55,6 +55,7 @@ export default function SocialMedia() {
             "Social media management",
             "Content creation, planning, captions and posting for small businesses, from £99 a month.",
             "/social-media",
+            "99",
           ),
           breadcrumbNode([
             { name: "Home", path: "/" },
@@ -81,7 +82,7 @@ export default function SocialMedia() {
       <div className="mx-auto grid max-w-[1120px] items-center gap-8 px-5 py-8 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="rounded-[1.6rem] bg-night p-8 text-white">
           <p className="text-[11px] font-semibold tracking-[0.2em] text-[#8eb6ff] uppercase">From</p>
-          <p className="mt-3 text-6xl font-semibold tracking-[-0.05em]">£99<span className="text-2xl text-slate-400">/month</span></p>
+          <p className="mt-3 text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">£99<span className="text-2xl text-slate-400">/month</span></p>
           <p className="mt-4 text-sm leading-relaxed text-slate-400">
             A starting point for ongoing management. We'll confirm the scope and the price before anything goes live.
           </p>

@@ -47,18 +47,18 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-5">
       <div
-        className={`mx-auto flex max-w-[1120px] items-center gap-3 border bg-white/80 px-3 backdrop-blur-xl transition-[height,border-radius,box-shadow] duration-300 dark:border-white/10 dark:bg-[#070b14]/80 ${
+        className={`mx-auto flex max-w-[1120px] items-center gap-2 border bg-white/80 px-2.5 backdrop-blur-xl transition-[height,border-radius,box-shadow] duration-300 sm:gap-3 sm:px-3 dark:border-white/10 dark:bg-[#070b14]/80 ${
           scrolled
             ? "h-16 rounded-2xl border-slate-200/80 shadow-soft"
-            : "h-[84px] rounded-[1.6rem] border-slate-200/70"
+            : "h-16 rounded-2xl border-slate-200/70 sm:h-[84px] sm:rounded-[1.6rem]"
         }`}
       >
-        <Link to="/" className="shrink-0 rounded-xl">
+        <Link to="/" className="min-w-0 shrink rounded-xl">
           <Logo
-            className={`w-auto transition-all duration-300 ${
-              scrolled ? "h-11" : "h-[62px]"
+            className={`w-auto max-w-[42vw] transition-all duration-300 sm:max-w-none ${
+              scrolled ? "h-10" : "h-10 sm:h-[62px]"
             }`}
           />
         </Link>
@@ -84,14 +84,14 @@ export default function Navbar() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-4">
-          <Link to="/contact" className={`${primaryBtn} hidden px-4 py-2.5 sm:inline-flex`}>
+          <Link to="/contact" className={`${primaryBtn} max-sm:hidden! px-4 py-2.5`}>
             Start Your Website
             <Icon name="arrow" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
           <ThemeToggle />
           <button
             type="button"
-            className="inline-grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink lg:hidden dark:border-white/10 dark:bg-white/5 dark:text-white"
+            className="inline-grid h-11 w-11 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-ink lg:hidden dark:border-white/10 dark:bg-white/5 dark:text-white"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((value) => !value)}

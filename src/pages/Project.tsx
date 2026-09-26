@@ -75,10 +75,6 @@ export default function Project() {
               <dt className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Industry</dt>
               <dd className="mt-1 font-medium">{project.industry}</dd>
             </div>
-            <div>
-              <dt className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Where</dt>
-              <dd className="mt-1 font-medium">{project.location}</dd>
-            </div>
           </dl>
           <ul className="mt-6 space-y-3">
             {project.points.map((point) => (

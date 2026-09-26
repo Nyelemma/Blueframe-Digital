@@ -92,7 +92,7 @@ function composeMessage(fields: Fields) {
 }
 
 const inputClass =
-  "h-12 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-sm text-ink outline-none transition placeholder:text-slate-400 focus:border-brand-deep dark:border-white/10 dark:bg-white/5 dark:text-white";
+  "min-h-12 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-base text-ink outline-none transition placeholder:text-slate-400 focus:border-brand-deep dark:border-white/10 dark:bg-white/5 dark:text-white";
 
 export default function ContactForm() {
   const [params] = useSearchParams();

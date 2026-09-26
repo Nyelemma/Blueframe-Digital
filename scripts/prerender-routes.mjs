@@ -29,37 +29,37 @@ const pages = [
   {
     path: "/work",
     out: "work/index.html",
-    title: "Our Work | Blueframe Digital",
+    title: "Our Work | Small Business Websites | Blueframe Digital",
     description:
-      "Websites designed by Blueframe Digital for trades, clubs, coaches and local businesses across Lancashire, Morecambe and Lancaster.",
+      "Websites designed by Blueframe Digital for trades, clubs, coaches and other small businesses. Each project links to the live site.",
   },
   {
     path: "/social-media",
     out: "social-media/index.html",
-    title: "Social Media Management Lancashire | Blueframe Digital",
+    title: "Social Media Management for Small Businesses | Blueframe Digital",
     description:
-      "Social media management for small businesses from £99 a month. Blueframe Digital plans, writes and posts so Lancashire businesses stay active online.",
+      "Social media management for small businesses from £99 a month. Blueframe Digital plans, writes and posts so you can stay active online.",
   },
   {
     path: "/pricing",
     out: "pricing/index.html",
-    title: "Website Design Pricing | Blueframe Digital",
+    title: "Website Pricing from £199 | Blueframe Digital",
     description:
-      "Websites from £199, online stores from £15 a month, and social media management from £99 a month. Clear starting prices for small businesses in Lancaster, Morecambe and Lancashire.",
+      "Websites from £199, online stores from £15 a month, and social media management from £99 a month. Clear starting prices before any work begins.",
   },
   {
     path: "/about",
     out: "about/index.html",
-    title: "About | Web Design Lancaster & Morecambe | Blueframe Digital",
+    title: "About Blueframe Digital | Websites for Small Businesses",
     description:
-      "Blueframe Digital builds professional websites for small businesses in Lancaster, Morecambe and Lancashire — studio quality, without the agency price tag.",
+      "Blueframe Digital builds professional websites for small businesses. Studio quality, without the agency price tag.",
   },
   {
     path: "/contact",
     out: "contact/index.html",
-    title: "Contact | Blueframe Digital",
+    title: "Contact Blueframe Digital | Start a Website",
     description:
-      "Start a website or social media project with Blueframe Digital. We work with small and local businesses across Morecambe Bay and Lancashire.",
+      "Start a website, online store or social media project with Blueframe Digital. Email us or send a WhatsApp message.",
   },
   ...projects.map((project) => ({
     path: `/work/${project.slug}`,
@@ -116,10 +116,9 @@ function jsonLd(page) {
         name: "Blueframe Digital",
         url: `${site}/`,
         email: "mikeyjnye@gmail.com",
-        areaServed: ["Lancaster", "Morecambe", "Morecambe Bay", "Lancashire", "United Kingdom"],
+        areaServed: { "@type": "Country", name: "United Kingdom" },
         address: {
           "@type": "PostalAddress",
-          addressRegion: "Lancashire",
           addressCountry: "GB",
         },
       },

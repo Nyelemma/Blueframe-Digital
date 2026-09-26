@@ -23,7 +23,7 @@ export default function PageHeader({
               <li key={`${crumb.label}-${index}`} className="flex items-center gap-2">
                 {index > 0 && <span aria-hidden="true">/</span>}
                 {crumb.to ? (
-                  <Link to={crumb.to} className="hover:text-ink dark:hover:text-white">
+                  <Link to={crumb.to} className="inline-flex min-h-8 items-center hover:text-ink dark:hover:text-white">
                     {crumb.label}
                   </Link>
                 ) : (
@@ -39,7 +39,7 @@ export default function PageHeader({
       <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
         {eyebrow}
       </p>
-      <h1 className="mt-4 max-w-[16ch] text-4xl font-semibold tracking-[-0.045em] sm:text-6xl">
+      <h1 className="mt-4 max-w-[16ch] text-[2rem] font-semibold leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
         {title}
       </h1>
       {children && (

@@ -44,7 +44,7 @@ export default function PortfolioGrid({ showFilters = false, heading, intro }: P
                 role="tab"
                 aria-selected={selected}
                 onClick={() => setCategory(item)}
-                className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition ${
+                className={`min-h-11 rounded-full px-4 text-sm font-medium transition ${
                   selected
                     ? "bg-ink text-white dark:bg-white dark:text-ink"
                     : "border border-slate-200 text-slate-600 hover:border-ink dark:border-white/10 dark:text-slate-300"

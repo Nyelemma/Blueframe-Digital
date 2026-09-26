@@ -24,7 +24,7 @@ export default function Layout() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main" className="pt-28 sm:pt-32">
+      <main id="main" className="pt-[calc(5.25rem+env(safe-area-inset-top))] sm:pt-32">
         <Outlet />
       </main>
       <Footer />

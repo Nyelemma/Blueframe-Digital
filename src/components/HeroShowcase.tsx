@@ -63,7 +63,7 @@ function slotFor(index: number, active: number) {
   return "hidden";
 }
 
-function Shot({ image, name }: { image: string; name: string }) {
+function Shot({ image, name, eager = false }: { image: string; name: string; eager?: boolean }) {
   return (
     <img
       src={assetUrl(`previews/${image}-sm.webp`)}
@@ -72,6 +72,7 @@ function Shot({ image, name }: { image: string; name: string }) {
       alt={`Homepage of the ${name} website`}
       width={1400}
       height={875}
+      loading={eager ? "eager" : "lazy"}
       decoding="async"
       className="h-full w-full object-cover object-top"
     />
@@ -115,11 +116,11 @@ export default function HeroShowcase() {
         Showing the {scenes[active].name} website
       </p>
 
-      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
-        {scenes.map((scene) => (
-          <div key={scene.id} className="w-[86%] shrink-0 snap-center">
+      <div className="flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
+        {scenes.map((scene, index) => (
+          <div key={scene.id} className="w-[min(85vw,22rem)] shrink-0 snap-center">
             <BrowserFrame url={scene.url}>
-              <Shot image={scene.image} name={scene.name} />
+              <Shot image={scene.image} name={scene.name} eager={index === 0} />
             </BrowserFrame>
             <p className="mt-3 text-center text-xs font-medium tracking-[0.16em] text-slate-500 uppercase">
               {scene.label}
@@ -160,7 +161,7 @@ export default function HeroShowcase() {
               }}
             >
               <BrowserFrame url={scene.url}>
-                <Shot image={scene.image} name={scene.name} />
+                <Shot image={scene.image} name={scene.name} eager={slot.opacity === 1 && index === active} />
               </BrowserFrame>
             </div>
           );

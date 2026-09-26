@@ -12,9 +12,6 @@ export default function Footer() {
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             Modern websites and digital services for small businesses.
           </p>
-          <p className="mt-4 text-sm text-slate-500 dark:text-slate-500">
-            Lancaster · Morecambe · Lancashire
-          </p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="mt-3 inline-block text-sm font-medium text-brand-deep hover:text-brand dark:text-brand"
@@ -29,7 +26,7 @@ export default function Footer() {
               <li key={link.to}>
                 <Link
                   to={link.to}
-                  className="text-slate-600 transition hover:text-ink dark:text-slate-400 dark:hover:text-white"
+                  className="inline-flex min-h-11 items-center text-slate-600 transition hover:text-ink dark:text-slate-400 dark:hover:text-white"
                 >
                   {link.label}
                 </Link>

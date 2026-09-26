@@ -1,12 +1,6 @@
 import { absoluteUrl, CONTACT_EMAIL, SITE_NAME, SITE_URL } from "./site";
 
-const areaServed = [
-  { "@type": "City", name: "Lancaster" },
-  { "@type": "City", name: "Morecambe" },
-  { "@type": "AdministrativeArea", name: "Lancashire" },
-  { "@type": "Place", name: "Morecambe Bay" },
-  { "@type": "Country", name: "United Kingdom" },
-];
+const areaServed = { "@type": "Country", name: "United Kingdom" };
 
 export function organizationNode() {
   return {
@@ -30,7 +24,6 @@ export function organizationNode() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressRegion: "Lancashire",
       addressCountry: "GB",
     },
   };
@@ -61,7 +54,7 @@ export function breadcrumbNode(items: { name: string; path: string }[]) {
   };
 }
 
-export function serviceNode(name: string, description: string, path: string) {
+export function serviceNode(name: string, description: string, path: string, lowPrice?: string) {
   return {
     "@type": "Service",
     name,
@@ -70,8 +63,9 @@ export function serviceNode(name: string, description: string, path: string) {
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed,
     offers: {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       priceCurrency: "GBP",
+      ...(lowPrice ? { lowPrice } : {}),
       availability: "https://schema.org/InStock",
     },
   };

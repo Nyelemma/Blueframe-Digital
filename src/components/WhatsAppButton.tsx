@@ -12,7 +12,7 @@ export default function WhatsAppButton({ className = "" }: Props) {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${primaryBtn} ${className}`}
+      className={`${primaryBtn} max-w-full flex-wrap px-4 text-center ${className}`}
     >
       <Icon name="whatsapp" className="h-4 w-4" />
       WhatsApp

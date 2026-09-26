@@ -67,7 +67,7 @@ export default function About() {
             A good website should make the phone ring, the form fill, or the booking happen. It should also look like you take the work seriously. Those two things are not reserved for companies with a five-figure marketing budget.
           </p>
           <p>
-            We design and build websites for trades, clubs, coaches, independents and other local businesses — especially around Lancaster, Morecambe and the rest of Lancashire. If you're further afield and the fit is right, we work there too.
+            We design and build websites for trades, clubs, coaches, independents and other small businesses.
           </p>
           <p>
             The work is personal, the pricing is upfront, and the sites are built to be fast, clear and easy to keep up to date. If you also need someone to keep your socials moving, that can sit alongside the website.

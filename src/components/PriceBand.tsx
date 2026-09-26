@@ -50,9 +50,9 @@ export default function PriceBand() {
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[#8eb6ff] uppercase">
             Starting from
           </p>
-          <p className="mt-10 font-semibold tracking-[-0.06em]">
-            <span className="align-top text-3xl text-[#8eb6ff]">£</span>
-            <span className="text-8xl leading-none sm:text-9xl">199</span>
+          <p className="mt-6 font-semibold tracking-[-0.06em] sm:mt-10">
+            <span className="align-top text-2xl text-[#8eb6ff] sm:text-3xl">£</span>
+            <span className="text-7xl leading-none sm:text-8xl lg:text-9xl">199</span>
           </p>
           <p className="mt-8 max-w-xs text-sm leading-relaxed text-slate-400">
             Great websites. Fair prices. Built for businesses that want to look established from day one.
@@ -60,7 +60,7 @@ export default function PriceBand() {
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-slate-300">
             Online stores from £15 a month. Cheaper than Shopify.
           </p>
-          <Link to="/pricing#stores" className="mt-3 text-sm font-semibold text-[#8eb6ff] hover:text-white">
+          <Link to="/pricing#stores" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-[#8eb6ff] hover:text-white">
             See store pricing
           </Link>
         </div>

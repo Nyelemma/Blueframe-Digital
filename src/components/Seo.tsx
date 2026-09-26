@@ -47,11 +47,13 @@ export default function Seo({ title, description, path, jsonLd, noIndex }: Props
     upsertMeta("property", "og:description", description);
     upsertMeta("property", "og:url", url);
     upsertMeta("property", "og:image", image);
+    upsertMeta("property", "og:image:alt", `${SITE_NAME} logo`);
     upsertMeta("property", "og:locale", "en_GB");
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
     upsertMeta("name", "twitter:image", image);
+    upsertMeta("name", "twitter:image:alt", `${SITE_NAME} logo`);
 
     let script = document.getElementById("bf-jsonld");
     if (!script) {

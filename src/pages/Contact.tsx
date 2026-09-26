@@ -46,9 +46,6 @@ export default function Contact() {
           </p>
           <h2 className="mt-8 text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">WhatsApp</h2>
           <WhatsAppButton className="mt-3 w-full" />
-          <p className="mt-6 text-sm text-slate-500">
-            Working with businesses in Lancaster, Morecambe, Morecambe Bay and across Lancashire.
-          </p>
         </aside>
         <ContactForm />
       </div>

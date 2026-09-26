@@ -92,16 +92,19 @@ export default function Pricing() {
             "Website design",
             "Professional websites for small businesses from £199.",
             "/pricing",
+            "199",
           ),
           serviceNode(
             "Online stores",
             "Online stores for small businesses from £15 a month, cheaper than Shopify.",
             "/pricing",
+            "15",
           ),
           serviceNode(
             "Social media management",
             "Social media management from £99 a month.",
             "/social-media",
+            "99",
           ),
           breadcrumbNode([
             { name: "Home", path: "/" },
