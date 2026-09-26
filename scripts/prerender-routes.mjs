@@ -2,11 +2,19 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import projects from "../src/content/projects.json" with { type: "json" };
 
-const site = (
-  process.env.VITE_SITE_URL ||
-  readSiteUrl() ||
-  "https://nyelemma.github.io/Blueframe-Digital"
-).replace(/\/$/, "");
+function resolveSiteUrl() {
+  if (process.env.VERCEL) {
+    const host = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+    if (host) return `https://${host}`.replace(/\/$/, "");
+  }
+  return (
+    process.env.VITE_SITE_URL ||
+    readSiteUrl() ||
+    "https://nyelemma.github.io/Blueframe-Digital"
+  ).replace(/\/$/, "");
+}
+
+const site = resolveSiteUrl();
 
 const description =
   "Professional websites for small businesses from £199. Blueframe Digital creates modern, fast and SEO-ready websites designed to help local businesses grow.";
