@@ -17,20 +17,20 @@
     ]
   },
   {
-    "slug": "morecambe-fc-girls",
-    "name": "Morecambe FC Girls",
-    "url": "https://morecambefcgirls.com/",
+    "slug": "morecambe-girls-fc",
+    "name": "Morecambe Girls FC",
+    "url": "https://www.morecambegirlsfc.com/",
     "category": "Sports",
-    "industry": "Football club",
-    "location": "Morecambe",
+    "industry": "Girls' football",
+    "location": "Morecambe, Lancaster & Heysham",
     "image": "fc-girls",
-    "preview": "designed",
-    "summary": "A website for Morecambe FC Girls, so the club has a clear home online.",
-    "description": "The website for Morecambe FC Girls. It gives the club a proper presence online for players, parents and anyone looking them up.",
+    "preview": "screenshot",
+    "summary": "Girls' football in Morecambe, from Wild Cats through to U16.",
+    "description": "Morecambe Girls FC's website introduces the club for girls across Morecambe, Lancaster, Heysham, Bare and Carnforth. It covers the pathway from Wild Cats to U16, along with teams, sponsors and a way to join.",
     "points": [
-      "A dedicated website for the club",
-      "Built so supporters can find the club quickly",
-      "Designed to feel like the club, not a generic template"
+      "About the club, teams and Wild Cats",
+      "Sponsors, FAQs and contact",
+      "A clear route to join the club"
     ]
   },
   {

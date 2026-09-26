@@ -60,7 +60,7 @@ export function FootballMini() {
     <div className="flex h-full flex-col bg-[#07111f] text-white">
       <div className="flex items-center justify-between px-3.5 py-2.5">
         <span className="text-[10px] font-semibold tracking-[0.12em] uppercase">
-          Morecambe FC Girls
+          Morecambe Girls FC
         </span>
         <span className="text-[8px] text-white/50">Morecambe</span>
       </div>

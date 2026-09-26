@@ -5,7 +5,7 @@ import { ArctaMini, CoachingMini, FootballMini, GardenMini, GasMini, PetsMini } 
 
 const scenes = [
   { id: "plumbing", label: "Plumbing", url: "morecambegas.co.uk", node: <GasMini /> },
-  { id: "football", label: "Football", url: "morecambefcgirls.com", node: <FootballMini /> },
+  { id: "football", label: "Football", url: "morecambegirlsfc.com", node: <FootballMini /> },
   { id: "landscaping", label: "Landscaping", url: "gpgardencare.co.uk", node: <GardenMini /> },
   { id: "coaching", label: "Coaching", url: "mncoaching.co.uk", node: <CoachingMini /> },
   { id: "pets", label: "Pet services", url: "happytailsnorthwest.com", node: <PetsMini /> },

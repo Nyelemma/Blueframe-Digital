@@ -1,6 +1,6 @@
 const names = [
   "Arcta Group",
-  "Morecambe FC Girls",
+  "Morecambe Girls FC",
   "Morecambe Gas Services",
   "MN Coaching",
   "Middleton & Overton Sports FC",
