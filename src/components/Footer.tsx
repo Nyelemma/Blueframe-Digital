@@ -1,41 +1,45 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import { CONTACT_EMAIL, FOOTER_LINKS } from "../lib/site";
 
-type Props = {
-  theme: "light" | "dark";
-};
-
-export default function Footer({ theme }: Props) {
-  const year = new Date().getFullYear();
+export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white dark:border-white/10 dark:bg-surface-dark">
-      <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-col gap-3">
-          <Logo size={28} theme={theme} />
-          <p className="max-w-sm text-sm text-slate-500 dark:text-slate-400">
-            Premium websites for local businesses, starting from £99. UK-built,
-            UK-supported.
+    <footer className="border-t border-slate-200 bg-white dark:border-white/10 dark:bg-night">
+      <div className="mx-auto grid max-w-[1120px] gap-10 px-5 py-14 sm:px-6 md:grid-cols-[1.3fr_1fr]">
+        <div>
+          <Logo className="h-20 w-auto" />
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            Modern websites and digital services for small businesses.
           </p>
-        </div>
-
-        <div className="flex flex-col items-start gap-2 text-sm text-slate-500 md:items-end dark:text-slate-400">
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <a href="#why" className="hover:text-navy dark:hover:text-white">
-              Why us
-            </a>
-            <a href="#process" className="hover:text-navy dark:hover:text-white">
-              Process
-            </a>
-            <a href="#pricing" className="hover:text-navy dark:hover:text-white">
-              Pricing
-            </a>
-            <a href="#contact" className="hover:text-navy dark:hover:text-white">
-              Contact
-            </a>
-          </div>
-          <p className="mt-2">
-            © {year} Blueframe Digital. All rights reserved.
+          <p className="mt-4 text-sm text-slate-500 dark:text-slate-500">
+            Lancaster · Morecambe · Lancashire
           </p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="mt-3 inline-block text-sm font-medium text-brand-deep hover:text-brand dark:text-brand"
+          >
+            {CONTACT_EMAIL}
+          </a>
         </div>
+        <nav aria-label="Footer" className="md:justify-self-end">
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm">
+            {FOOTER_LINKS.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className="text-slate-600 transition hover:text-ink dark:text-slate-400 dark:hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div className="border-t border-slate-200 dark:border-white/10">
+        <p className="mx-auto max-w-[1120px] px-5 py-5 text-xs text-slate-500 sm:px-6">
+          © {new Date().getFullYear()} Blueframe Digital. All rights reserved.
+        </p>
       </div>
     </footer>
   );

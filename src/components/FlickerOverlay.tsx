@@ -1,21 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "../lib/theme";
 
-type Props = {
-  state: null | "to-dark" | "to-light";
-};
+export default function FlickerOverlay() {
+  const { flicker } = useTheme();
 
-export default function FlickerOverlay({ state }: Props) {
   return (
     <AnimatePresence>
-      {state && (
+      {flicker && (
         <motion.div
-          key={state}
+          key={flicker}
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.85, 0] }}
+          animate={{ opacity: [0, 0.72, 0.05, 0.45, 0] }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.42, times: [0, 0.4, 1] }}
-          className={`pointer-events-none fixed inset-0 z-[100] ${
-            state === "to-dark" ? "bg-black" : "bg-white"
+          transition={{ duration: 0.38, times: [0, 0.18, 0.4, 0.62, 1] }}
+          className={`pointer-events-none fixed inset-0 z-[80] ${
+            flicker === "to-dark" ? "bg-white" : "bg-black"
           }`}
           aria-hidden="true"
         />

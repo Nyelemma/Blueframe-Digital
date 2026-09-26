@@ -2,9 +2,9 @@
 
 ## Positioning
 
-**Blueframe Digital** builds **premium websites for local businesses, starting from £99**. The promise: agency-quality design and performance, without agency-scale invoicing.
+**Blueframe Digital** builds **premium websites for small and local businesses, starting from £199**. Social media management starts from £99 a month. The promise: agency-quality design, without the agency price tag.
 
-**One-liner:** *Premium Websites. Half the Cost.*
+**One-liner:** *Great websites. Fair prices.*
 
 **Tone of voice:** confident, plain, helpful. Short sentences. No buzzwords. Focus on **value, speed, and clarity** — never cleverness.
 
@@ -66,7 +66,7 @@ Use the **gradient sparingly** — primary CTA, hero accent text, badges, and on
 
 ## Voice samples
 
-- Hero subhead: *"We build high-performing websites for local businesses, starting from just £99."*
+- Hero subhead: *"High-quality, modern websites built for small and local businesses. No huge agency fees. Websites from £199."*
 - Pricing footnote: *"Hosting and domain billed separately at cost. No hidden fees, ever."*
 - Final CTA: *"Get Your Website Live This Week — Simple. Affordable. Effective."*
 

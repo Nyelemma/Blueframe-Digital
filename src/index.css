@@ -3,81 +3,110 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --color-brand-from: #1e73ff;
-  --color-brand-to: #0052cc;
-  --color-navy: #0f172a;
-  --color-navy-soft: #111c33;
-  --color-surface: #f8fafc;
-  --color-surface-dark: #0b1220;
+  --color-brand: #1e73ff;
+  --color-brand-deep: #0052cc;
+  --color-ink: #0f172a;
+  --color-night: #070b14;
+  --color-paper: #f8fafc;
+  --color-line: #e2e8f0;
 
-  --shadow-soft: 0 6px 20px -8px rgba(15, 23, 42, 0.18),
-    0 2px 6px -2px rgba(15, 23, 42, 0.08);
-  --shadow-lift: 0 18px 40px -12px rgba(15, 23, 42, 0.28),
-    0 6px 14px -6px rgba(15, 23, 42, 0.14);
-
-  --radius-2xl: 1.25rem;
+  --shadow-soft: 0 10px 30px -18px rgba(15, 23, 42, 0.45);
+  --shadow-lift: 0 30px 60px -28px rgba(15, 23, 42, 0.45);
 }
 
 @layer base {
   :root {
     color-scheme: light;
   }
+
   .dark {
     color-scheme: dark;
   }
 
   html {
     scroll-behavior: smooth;
+    scrollbar-color: #94a3b8 transparent;
   }
 
   body {
-    @apply bg-surface text-navy antialiased font-sans;
+    @apply bg-paper text-ink antialiased font-sans;
     font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
   }
 
   .dark body {
-    @apply bg-surface-dark text-slate-100;
+    @apply bg-night text-slate-100;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--color-brand-from) 35%, transparent);
-    color: var(--color-navy);
+    background: color-mix(in oklab, var(--color-brand) 32%, transparent);
+    color: var(--color-ink);
   }
+
   .dark ::selection {
     color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
 @layer utilities {
-  .bg-brand-gradient {
-    background-image: linear-gradient(
-      135deg,
-      var(--color-brand-from),
-      var(--color-brand-to)
-    );
-  }
-  .text-brand-gradient {
-    background-image: linear-gradient(
-      135deg,
-      var(--color-brand-from),
-      var(--color-brand-to)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .ring-brand {
-    --tw-ring-color: color-mix(in oklab, var(--color-brand-from) 60%, transparent);
-  }
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
+
   .shadow-lift {
     box-shadow: var(--shadow-lift);
   }
+
+  .frame-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-brand) 18%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-brand) 18%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 72%);
+  }
+}
+
+@keyframes bf-flicker {
+  0% { filter: brightness(1); }
+  10% { filter: brightness(1.7); }
+  24% { filter: brightness(0.25); }
+  42% { filter: brightness(1.35); }
+  68% { filter: brightness(0.9); }
+  100% { filter: brightness(1); }
+}
+
+html.theme-flicker {
+  animation: bf-flicker 380ms linear;
+}
+
+@keyframes bf-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+.float-slow {
+  animation: bf-float 8s ease-in-out infinite;
+}
+
+.float-slower {
+  animation: bf-float 11s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

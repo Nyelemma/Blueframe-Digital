@@ -1,65 +1,67 @@
-import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Process from "./components/Process";
-import Pricing from "./components/Pricing";
-import FAQ from "./components/FAQ";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import FlickerOverlay from "./components/FlickerOverlay";
+import { Component, lazy, Suspense, type ReactNode } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "./lib/theme";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
 
-type Theme = "light" | "dark";
+const Work = lazy(() => import("./pages/Work"));
+const Project = lazy(() => import("./pages/Project"));
+const SocialMedia = lazy(() => import("./pages/SocialMedia"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem("theme");
-  if (stored === "light" || stored === "dark") return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+class Boundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  render() {
+    if (this.state.failed) {
+      return (
+        <div className="mx-auto max-w-lg px-6 py-24">
+          <h1 className="text-3xl font-semibold tracking-tight">Something went wrong.</h1>
+          <p className="mt-3 text-slate-600">Refresh the page, or head back home.</p>
+          <a href={import.meta.env.BASE_URL} className="mt-6 inline-flex font-semibold text-brand-deep">
+            Go home
+          </a>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+function basename() {
+  const base = import.meta.env.BASE_URL || "/";
+  if (base === "/") return undefined;
+  return base.replace(/\/$/, "");
 }
 
 export default function App() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const [flicker, setFlicker] = useState<null | "to-dark" | "to-light">(null);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") root.classList.add("dark");
-    else root.classList.remove("dark");
-    try {
-      window.localStorage.setItem("theme", theme);
-    } catch {
-      /* ignore */
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    if (reduce) {
-      setTheme(next);
-      return;
-    }
-    setFlicker(next === "dark" ? "to-dark" : "to-light");
-    window.setTimeout(() => setTheme(next), 120);
-    window.setTimeout(() => setFlicker(null), 420);
-  };
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar theme={theme} onToggleTheme={toggleTheme} />
-      <main className="flex-1">
-        <Hero />
-        <Features />
-        <Process />
-        <Pricing />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer theme={theme} />
-      <FlickerOverlay state={flicker} />
-    </div>
+    <ThemeProvider>
+      <BrowserRouter basename={basename()}>
+        <Boundary>
+          <Suspense fallback={<div className="min-h-screen bg-paper dark:bg-night" />}>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="work" element={<Work />} />
+                <Route path="work/:slug" element={<Project />} />
+                <Route path="social-media" element={<SocialMedia />} />
+                <Route path="pricing" element={<Pricing />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </Boundary>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
