@@ -4,7 +4,11 @@ export const SITE_URL = (
   import.meta.env.VITE_SITE_URL || "https://nyelemma.github.io/Blueframe-Digital"
 ).replace(/\/$/, "");
 
-export const CONTACT_EMAIL = "hello@blueframe.digital";
+export const CONTACT_EMAIL = "mikeyjnye@gmail.com";
+
+export const WHATSAPP_DISPLAY = "07943 869697";
+
+export const WHATSAPP_URL = "https://wa.me/447943869697";
 
 export const NAV_LINKS = [
   { to: "/", label: "Home" },

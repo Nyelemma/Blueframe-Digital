@@ -18,9 +18,10 @@ type IconName =
   | "send"
   | "caption"
   | "brand"
-  | "refresh";
+  | "refresh"
+  | "whatsapp";
 
-const paths: Record<Exclude<IconName, "arrow" | "check" | "sun" | "moon" | "menu" | "close">, string> = {
+const paths: Record<Exclude<IconName, "arrow" | "check" | "sun" | "moon" | "menu" | "close" | "whatsapp">, string> = {
   design:
     "M4 16.5 12 4l8 12.5M7 14h10M9.5 19.5h5",
   mobile:
@@ -105,6 +106,17 @@ export default function Icon({
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
         <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (name === "whatsapp") {
+    return (
+      <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10.1 10.1 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2Zm5.76 13.9c-.24.68-1.4 1.25-1.93 1.33-.49.07-1.1.1-1.78-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.7-4.1-4.84-4.29-.14-.19-1.15-1.53-1.15-2.92s.73-2.07 1-2.35c.24-.28.64-.41 1.02-.41.12 0 .23 0 .33.01.3.01.44.03.64.49.24.58.82 2 .89 2.15.07.14.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.13-.28.28-.12.54.16.26.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.17.67-.78.85-1.05.18-.26.36-.22.6-.13.24.09 1.53.72 1.79.85.26.13.44.2.5.31.07.11.07.64-.17 1.32Z"
+        />
       </svg>
     );
   }

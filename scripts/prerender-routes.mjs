@@ -115,7 +115,7 @@ function jsonLd(page) {
         "@type": ["Organization", "ProfessionalService"],
         name: "Blueframe Digital",
         url: `${site}/`,
-        email: "hello@blueframe.digital",
+        email: "mikeyjnye@gmail.com",
         areaServed: ["Lancaster", "Morecambe", "Morecambe Bay", "Lancashire", "United Kingdom"],
         address: {
           "@type": "PostalAddress",

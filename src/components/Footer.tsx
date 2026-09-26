@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import WhatsAppButton from "./WhatsAppButton";
 import { CONTACT_EMAIL, FOOTER_LINKS } from "../lib/site";
 
 export default function Footer() {
@@ -20,6 +21,7 @@ export default function Footer() {
           >
             {CONTACT_EMAIL}
           </a>
+          <WhatsAppButton className="mt-4" />
         </div>
         <nav aria-label="Footer" className="md:justify-self-end">
           <ul className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm">
