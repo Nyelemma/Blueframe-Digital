@@ -33,9 +33,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Add SPA fallback (404 -> index.html)
-        run: cp dist/index.html dist/404.html
-
       - name: Disable Jekyll
         run: touch dist/.nojekyll
 

@@ -1,0 +1,121 @@
+[
+  {
+    "slug": "arcta-group",
+    "name": "Arcta Group",
+    "url": "https://arctagroup.ae/",
+    "category": "Business",
+    "industry": "Property services",
+    "location": "Dubai & the UAE",
+    "image": "arcta",
+    "preview": "screenshot",
+    "summary": "A premium site for AC maintenance, deep cleaning, water filtration and property care across the UAE.",
+    "description": "Arcta Group's website presents AC maintenance, duct cleaning, home sanitisation, water filtration, snagging inspections and property maintenance for homes and portfolios across Dubai and the UAE.",
+    "points": [
+      "Separate paths for maintenance, deep cleaning, water filtration and snagging",
+      "Written for homeowners, landlords and property managers",
+      "A direct way to request a service"
+    ]
+  },
+  {
+    "slug": "morecambe-fc-girls",
+    "name": "Morecambe FC Girls",
+    "url": "https://morecambefcgirls.com/",
+    "category": "Sports",
+    "industry": "Football club",
+    "location": "Morecambe",
+    "image": "fc-girls",
+    "preview": "designed",
+    "summary": "A website for Morecambe FC Girls, so the club has a clear home online.",
+    "description": "The website for Morecambe FC Girls. It gives the club a proper presence online for players, parents and anyone looking them up.",
+    "points": [
+      "A dedicated website for the club",
+      "Built so supporters can find the club quickly",
+      "Designed to feel like the club, not a generic template"
+    ]
+  },
+  {
+    "slug": "morecambe-gas-services",
+    "name": "Morecambe Gas Services",
+    "url": "https://morecambegas.co.uk/",
+    "category": "Trades",
+    "industry": "Gas & heating",
+    "location": "Morecambe & Lancaster",
+    "image": "gas",
+    "preview": "screenshot",
+    "summary": "Boilers, gas fires, stoves and central heating for homes around Morecambe Bay.",
+    "description": "Morecambe Gas Services uses its website to set out boiler work, gas fires, stoves, LPG and central heating for customers in Morecambe, Lancaster and the surrounding area, with servicing, repairs and a way to enquire.",
+    "points": [
+      "Servicing, repairs, boilers, fires, stoves and LPG",
+      "Service contracts and pricing paths",
+      "Phone and enquiry routes for local customers"
+    ]
+  },
+  {
+    "slug": "mn-coaching",
+    "name": "MN Coaching",
+    "url": "https://mncoaching.co.uk/",
+    "category": "Coaching",
+    "industry": "Football coaching",
+    "location": "Morecambe & Lancaster",
+    "image": "coaching",
+    "preview": "screenshot",
+    "summary": "1-to-1, kids and group football coaching across Morecambe and Lancaster.",
+    "description": "MN Coaching's website covers 1-to-1 sessions, kids coaching and group training for players in Morecambe, Lancaster and surrounding areas, with a clear way to book or register interest.",
+    "points": [
+      "Coaching formats explained in plain language",
+      "Booking and enquiry routes",
+      "Local areas and contact details up front"
+    ]
+  },
+  {
+    "slug": "middleton-overton-sports-fc",
+    "name": "Middleton & Overton Sports FC",
+    "url": "https://middletonandovertonsportsfc.com/",
+    "category": "Sports",
+    "industry": "Grassroots football",
+    "location": "Middleton, Morecambe",
+    "image": "middleton",
+    "preview": "screenshot",
+    "summary": "A club site for grassroots football at Middleton Park, with fixtures, history and sponsors.",
+    "description": "The club website for Middleton & Overton Sports FC, a grassroots side based at Middleton Park in Middleton, Morecambe. It brings together the club story, history, sponsors, photos and league information.",
+    "points": [
+      "About the club and its history",
+      "League, fixtures and results",
+      "Sponsors, photos, contact and a club shop"
+    ]
+  },
+  {
+    "slug": "happy-tails-northwest",
+    "name": "Happy Tails Northwest",
+    "url": "https://www.happytailsnorthwest.com/",
+    "category": "Services",
+    "industry": "Pet care",
+    "location": "Southport",
+    "image": "happytails",
+    "preview": "screenshot",
+    "summary": "Pet sitting, boarding and home-from-home care for Southport and nearby.",
+    "description": "Happy Tails Northwest's website sets out pet sitting, dog boarding, puppy visits, cat care and small-animal care for Southport and surrounding areas, with FAQs and a straightforward way to enquire.",
+    "points": [
+      "Services, gallery and frequently asked questions",
+      "Separate enquiry paths for sitting, boarding and other care",
+      "Phone, email and WhatsApp contact"
+    ]
+  },
+  {
+    "slug": "gp-garden-care",
+    "name": "GP Garden Care",
+    "url": "https://gpgardencare.co.uk/",
+    "category": "Trades",
+    "industry": "Garden care",
+    "location": "Lancaster & Morecambe",
+    "image": "garden",
+    "preview": "screenshot",
+    "summary": "Lawn, hedge and garden care for homes across Lancaster and Morecambe.",
+    "description": "GP Garden Care's website presents lawn care, hedge trimming, maintenance, clearance, planting and garden design for Lancaster, Morecambe and the surrounding area, with a simple route to ask for a quote.",
+    "points": [
+      "Services from mowing and hedges to clearances and design",
+      "Before-and-after work and a quote form",
+      "Written for local customers who want the garden looked after"
+    ]
+  }
+]
