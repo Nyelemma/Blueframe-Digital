@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { useSearchParams } from "react-router-dom";
-import { CONTACT_EMAIL } from "../lib/site";
 import { primaryBtn } from "../lib/classes";
 import Icon from "./Icons";
 
@@ -78,19 +77,6 @@ function validate(fields: Fields): Errors {
   return errors;
 }
 
-function composeMessage(fields: Fields) {
-  return [
-    `Name: ${fields.name.trim()}`,
-    `Business: ${fields.business.trim() || "—"}`,
-    `Email: ${fields.email.trim()}`,
-    `Phone: ${fields.phone.trim() || "—"}`,
-    `What they need: ${fields.need}`,
-    `Budget: ${fields.budget}`,
-    "",
-    fields.message.trim(),
-  ].join("\n");
-}
-
 const inputClass =
   "min-h-12 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-base text-ink outline-none transition placeholder:text-slate-400 focus:border-brand-deep dark:border-white/10 dark:bg-white/5 dark:text-white";
 
@@ -114,90 +100,70 @@ export default function ContactForm() {
     }));
   }, [params]);
   const [errors, setErrors] = useState<Errors>({});
-  const [ready, setReady] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
-  const [copyError, setCopyError] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const update = (key: keyof Fields, value: string) => {
     setFields((current) => ({ ...current, [key]: value }));
   };
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (fields.company) return;
+    if (fields.company) {
+      setStatus("sent");
+      return;
+    }
     const nextErrors = validate(fields);
     setErrors(nextErrors);
+    setSubmitError(null);
     if (Object.keys(nextErrors).length) {
       const first = Object.keys(nextErrors)[0];
       document.getElementById(first)?.focus();
       return;
     }
-    const body = composeMessage(fields);
-    const subject = `New project enquiry — ${fields.business.trim() || fields.name.trim()}`;
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setReady(body);
-    setCopied(false);
-    setCopyError(false);
-    if (mailto.length < 1900) {
-      window.location.href = mailto;
-    }
-  };
 
-  const copy = async () => {
-    if (!ready) return;
+    setStatus("sending");
     try {
-      await navigator.clipboard.writeText(ready);
-      setCopied(true);
-      setCopyError(false);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+      const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!response.ok || !payload?.ok) {
+        setStatus("idle");
+        setSubmitError(payload?.error || "We couldn't send your message. Please try again or use WhatsApp.");
+        return;
+      }
+      setStatus("sent");
     } catch {
-      setCopyError(true);
+      setStatus("idle");
+      setSubmitError("We couldn't send your message. Please try again or use WhatsApp.");
     }
   };
 
-  if (ready) {
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      `New project enquiry — ${fields.business.trim() || fields.name.trim()}`,
-    )}&body=${encodeURIComponent(ready)}`;
+  if (status === "sent") {
     return (
       <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-white/10 dark:bg-[#0c1222]" role="status">
         <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
-          Ready to send
+          Message sent
         </p>
-        <h2 className="mt-3 text-2xl font-semibold tracking-tight">Your enquiry is prepared.</h2>
+        <h2 className="mt-3 text-2xl font-semibold tracking-tight">Thanks. We'll reply by email.</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-          Your email app should open with the message ready. If it doesn't, copy the message and use the button below.
+          Your enquiry is with us. If you need a quicker reply, WhatsApp is on this page.
         </p>
-        <textarea
-          readOnly
-          value={ready}
-          className="mt-5 h-48 w-full resize-y rounded-xl border border-slate-200 bg-paper p-3 text-sm dark:border-white/10 dark:bg-white/5"
-          aria-label="Your enquiry"
-        />
-        {copyError && (
-          <p className="mt-3 text-sm text-red-700 dark:text-red-300" role="alert">
-            Copying didn't work. Select the message above and copy it manually.
-          </p>
-        )}
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-          <a href={mailto} className={primaryBtn}>
-            Open email app
-            <Icon name="arrow" className="h-4 w-4" />
-          </a>
-          <button
-            type="button"
-            onClick={copy}
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold dark:border-white/15"
-          >
-            {copied ? "Copied" : "Copy message"}
-          </button>
-          <button
-            type="button"
-            onClick={() => setReady(null)}
-            className="inline-flex items-center justify-center px-3 py-3 text-sm font-medium text-slate-500"
-          >
-            Edit details
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setFields(initial);
+            setErrors({});
+            setSubmitError(null);
+            setStatus("idle");
+          }}
+          className={`${primaryBtn} mt-6`}
+        >
+          Send another message
+        </button>
       </div>
     );
   }
@@ -327,8 +293,13 @@ export default function ContactForm() {
           onChange={(event) => update("company", event.target.value)}
         />
       </div>
-      <button type="submit" className={`${primaryBtn} mt-2 w-full sm:w-fit`}>
-        Start My Project
+      {submitError && (
+        <p className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 dark:border-red-400/30 dark:bg-red-500/10 dark:text-red-200" role="alert">
+          {submitError}
+        </p>
+      )}
+      <button type="submit" disabled={status === "sending"} className={`${primaryBtn} mt-2 w-full disabled:opacity-70 sm:w-fit`}>
+        {status === "sending" ? "Sending…" : "Start My Project"}
         <Icon name="arrow" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
       </button>
     </form>
