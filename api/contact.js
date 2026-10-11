@@ -52,7 +52,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Please check the form and try again." });
   }
 
-  if (text(body.company, 200)) {
+  if (text(body.bf_hp, 200) || text(body.company, 200)) {
+    console.error("contact honeypot");
     return res.status(200).json({ ok: true });
   }
 
@@ -112,11 +113,13 @@ export default async function handler(req, res) {
       }),
     });
 
+    const result = await response.json().catch(() => ({}));
     if (!response.ok) {
-      console.error("Resend rejected the enquiry", response.status);
+      console.error("Resend rejected the enquiry", response.status, result.name || "unknown");
       return res.status(502).json({ error: "We couldn't send your message. Please try again." });
     }
 
+    console.log("enquiry queued", result.id || "no-id");
     return res.status(200).json({ ok: true });
   } catch (error) {
     console.error("Resend request failed", error instanceof Error ? error.name : "Error");

@@ -46,7 +46,7 @@ type Fields = {
   need: string;
   budget: string;
   message: string;
-  company: string;
+  bf_hp: string;
 };
 
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -59,7 +59,7 @@ const empty: Fields = {
   need: "",
   budget: "",
   message: "",
-  company: "",
+  bf_hp: "",
 };
 
 function validate(fields: Fields): Errors {
@@ -109,7 +109,7 @@ export default function ContactForm() {
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (fields.company) {
+    if (fields.bf_hp) {
       setStatus("sent");
       return;
     }
@@ -283,14 +283,14 @@ export default function ContactForm() {
         />
       </Field>
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
-        <label htmlFor="company">Company website</label>
+        <label htmlFor="bf_hp">Leave this blank</label>
         <input
-          id="company"
-          name="company"
+          id="bf_hp"
+          name="bf_hp"
           tabIndex={-1}
           autoComplete="off"
-          value={fields.company}
-          onChange={(event) => update("company", event.target.value)}
+          value={fields.bf_hp}
+          onChange={(event) => update("bf_hp", event.target.value)}
         />
       </div>
       {submitError && (
