@@ -84,7 +84,7 @@ export default async function handler(req, res) {
   }
 
   const from = process.env.RESEND_FROM || FROM;
-  const to = process.env.RESEND_TO || TO;
+  const to = TO;
   const subject = `New project enquiry — ${business || name}`;
   const content = [
     `Name: ${name}`,
@@ -119,7 +119,7 @@ export default async function handler(req, res) {
       return res.status(502).json({ error: "We couldn't send your message. Please try again." });
     }
 
-    console.log("enquiry queued", result.id || "no-id");
+    console.log("enquiry queued", result.id || "no-id", to);
     return res.status(200).json({ ok: true });
   } catch (error) {
     console.error("Resend request failed", error instanceof Error ? error.name : "Error");
