@@ -1,4 +1,4 @@
-const TO = "blueframedigital0@gmail.com";
+const TO = "info@blueframedigital.co.uk";
 const FROM = "Blueframe Digital <info@blueframedigital.co.uk>";
 
 const NEEDS = new Set([
@@ -83,7 +83,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "We couldn't send your message. Please try again." });
   }
 
-  const from = process.env.RESEND_FROM || FROM;
+  const from = FROM;
   const to = TO;
   const subject = `New project enquiry — ${business || name}`;
   const content = [
