@@ -1,5 +1,5 @@
 const TO = "blueframedigital0@gmail.com";
-const FROM = "Blueframe Digital <hello@blueframedigital.co.uk>";
+const FROM = "Blueframe Digital <info@blueframedigital.co.uk>";
 
 const NEEDS = new Set([
   "Website",
