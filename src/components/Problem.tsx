@@ -23,7 +23,7 @@ export default function Problem() {
     <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-6 md:py-28" aria-labelledby="problem-title">
       <div className="grid items-end gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
             The problem
           </p>
           <h2
@@ -42,7 +42,7 @@ export default function Problem() {
         <ol className="grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3 lg:col-span-7 dark:border-white/10 dark:bg-white/10">
           {states.map((state) => (
             <li key={state.number} className="h-full bg-white p-5 dark:bg-[#0c1222]">
-              <p className="text-[11px] font-semibold tracking-[0.18em] text-brand-deep dark:text-brand">
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-brand-deep dark:text-brand-bright">
                 {state.number}
               </p>
               <h3 className="mt-4 text-lg font-semibold tracking-tight">{state.title}</h3>

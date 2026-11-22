@@ -18,7 +18,7 @@ export default function PriceBand() {
     <section className="mx-auto max-w-[1120px] px-5 py-8 sm:px-6" aria-labelledby="price-title">
       <div className="grid overflow-hidden rounded-[1.8rem] border border-slate-200 lg:grid-cols-2 dark:border-white/10">
         <Reveal className="bg-white p-8 sm:p-12 dark:bg-[#0c1222]">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
             Websites
           </p>
           <h2
@@ -33,7 +33,7 @@ export default function PriceBand() {
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {points.map((point) => (
               <li key={point} className="flex items-center gap-2 text-sm">
-                <Icon name="check" className="h-4 w-4 shrink-0 text-brand-deep dark:text-brand" />
+                <Icon name="check" className="h-4 w-4 shrink-0 text-brand-deep dark:text-brand-bright" />
                 {point}
               </li>
             ))}
@@ -42,7 +42,7 @@ export default function PriceBand() {
             Get Your Website
             <Icon name="arrow" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
-          <p className="mt-4 text-sm text-slate-500">
+          <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
             Every project is different. We'll give you a clear price before we start.
           </p>
         </Reveal>

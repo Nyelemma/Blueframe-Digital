@@ -133,7 +133,7 @@ export default function Pricing() {
                 : "border-slate-200 bg-white dark:border-white/10 dark:bg-[#0c1222]"
             }`}
           >
-            <p className={`text-[11px] font-semibold tracking-[0.18em] uppercase ${tier.tone === "dark" ? "text-[#8eb6ff]" : "text-slate-500"}`}>
+            <p className={`text-[11px] font-semibold tracking-[0.18em] uppercase ${tier.tone === "dark" ? "text-[#8eb6ff]" : "text-slate-500 dark:text-slate-400"}`}>
               {tier.note}
             </p>
             <h2 className="mt-3 text-4xl font-semibold tracking-[-0.04em]">{tier.price}</h2>
@@ -144,7 +144,7 @@ export default function Pricing() {
             <ul className="mt-6 space-y-2.5 text-sm">
               {tier.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
-                  <Icon name="check" className={`mt-0.5 h-4 w-4 shrink-0 ${tier.tone === "dark" ? "text-[#8eb6ff]" : "text-brand-deep dark:text-brand"}`} />
+                  <Icon name="check" className={`mt-0.5 h-4 w-4 shrink-0 ${tier.tone === "dark" ? "text-[#8eb6ff]" : "text-brand-deep dark:text-brand-bright"}`} />
                   {feature}
                 </li>
               ))}
@@ -178,7 +178,7 @@ export default function Pricing() {
           </Link>
         </article>
         <article className="flex flex-col rounded-[1.6rem] border border-slate-200 p-6 sm:p-8 dark:border-white/10">
-          <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase">Monthly</p>
+          <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 dark:text-slate-400 uppercase">Monthly</p>
           <h2 className="mt-2 text-4xl font-semibold tracking-[-0.04em]">From £99/month</h2>
           <h3 className="mt-3 text-lg font-semibold">Social Media</h3>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
@@ -187,7 +187,7 @@ export default function Pricing() {
           <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
             {social.map((item) => (
               <li key={item} className="flex items-center gap-2 text-sm">
-                <Icon name="check" className="h-4 w-4 shrink-0 text-brand-deep dark:text-brand" />
+                <Icon name="check" className="h-4 w-4 shrink-0 text-brand-deep dark:text-brand-bright" />
                 {item}
               </li>
             ))}
@@ -197,7 +197,7 @@ export default function Pricing() {
             <Icon name="arrow" className="h-4 w-4" />
           </Link>
         </article>
-        <p className="mt-6 text-sm text-slate-500">
+        <p className="mt-6 text-sm text-slate-500 dark:text-slate-400">
           Hosting and domain names are discussed separately. Nothing starts until the price is agreed.
         </p>
       </div>

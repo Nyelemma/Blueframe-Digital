@@ -32,6 +32,7 @@ export default function Work() {
         Real websites. Real businesses. Real results. Each one opens in a new tab.
       </PageHeader>
       <div className="mx-auto max-w-[1120px] px-5 pt-6 pb-20 sm:px-6">
+        <h2 className="sr-only">Portfolio</h2>
         <PortfolioGrid showFilters />
       </div>
       <FinalCta />

@@ -37,7 +37,7 @@ export default function Contact() {
           <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             Use the form to send a message. Websites start from £199. Online stores start from £15 a month. Social media management starts from £99 a month.
           </p>
-          <h2 className="mt-8 text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">WhatsApp</h2>
+          <h2 className="mt-8 text-sm font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">WhatsApp</h2>
           <WhatsAppButton className="mt-3 w-full" />
         </aside>
         <ContactForm />

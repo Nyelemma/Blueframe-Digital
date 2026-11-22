@@ -12,7 +12,7 @@ export default function NotFound() {
         noIndex
       />
       <div className="mx-auto max-w-[1120px] px-5 py-16 sm:px-6">
-        <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+        <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
           404
         </p>
         <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">

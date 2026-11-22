@@ -55,7 +55,7 @@ export default function Services() {
                   className={`inline-grid h-11 w-11 place-items-center rounded-xl border ${
                     dark
                       ? "border-white/15 text-[#8eb6ff]"
-                      : "border-slate-200 text-brand-deep dark:border-white/10 dark:text-brand"
+                      : "border-slate-200 text-brand-deep dark:border-white/10 dark:text-brand-bright"
                   }`}
                 >
                   <Icon name={service.icon} className="h-5 w-5" />
@@ -72,7 +72,7 @@ export default function Services() {
                   <p>
                     <span
                       className={`block text-[11px] font-semibold tracking-[0.18em] uppercase ${
-                        dark ? "text-[#8eb6ff]" : "text-slate-500"
+                        dark ? "text-[#8eb6ff]" : "text-slate-500 dark:text-slate-400"
                       }`}
                     >
                       {service.priceNote}
@@ -80,7 +80,7 @@ export default function Services() {
                     <span className="mt-1 block text-3xl font-semibold tracking-[-0.04em]">
                       {service.price}
                       {service.priceUnit && (
-                        <span className={`text-base ${dark ? "text-slate-400" : "text-slate-500"}`}>
+                        <span className={`text-base ${dark ? "text-slate-400" : "text-slate-500 dark:text-slate-400"}`}>
                           {service.priceUnit}
                         </span>
                       )}

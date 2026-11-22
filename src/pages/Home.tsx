@@ -90,7 +90,7 @@ export default function Home() {
                 View Our Work
               </Link>
             </div>
-            <p {...rise(0.24)} className={`${rise(0.24).className} mt-5 text-sm text-slate-500 sm:mt-6`}>
+            <p {...rise(0.24)} className={`${rise(0.24).className} mt-5 text-sm text-slate-500 dark:text-slate-400 sm:mt-6`}>
               Websites, online stores and social media for small businesses.
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function Home() {
       <PriceBand />
 
       <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-6 md:py-28" aria-labelledby="work-title">
-        <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+        <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
           Selected work
         </p>
         <div className="mt-4" id="work-title">
@@ -126,7 +126,7 @@ export default function Home() {
       <section className="mx-auto max-w-[1120px] px-5 pb-8 sm:px-6">
         <div className="grid items-center gap-8 rounded-[1.8rem] border border-slate-200 bg-white p-8 sm:p-10 md:grid-cols-[1.2fr_0.8fr] dark:border-white/10 dark:bg-[#0c1222]">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
               Social media
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">
@@ -148,7 +148,7 @@ export default function Home() {
       <section className="mx-auto max-w-[1120px] px-5 py-20 sm:px-6" aria-labelledby="local-title">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
               Local web design
             </p>
             <h2 id="local-title" className="mt-4 max-w-[18ch] text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
@@ -165,7 +165,7 @@ export default function Home() {
               { heading: "Industries", items: landingsOfKind("industry") },
             ].map((group) => (
               <nav key={group.heading} aria-label={`Web design by ${group.heading.toLowerCase()}`}>
-                <h3 className="text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">{group.heading}</h3>
+                <h3 className="text-sm font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">{group.heading}</h3>
                 <ul className="mt-3 space-y-2">
                   {group.items.map((item) => (
                     <li key={item.slug}>

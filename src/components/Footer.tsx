@@ -36,7 +36,7 @@ export default function Footer() {
           </ul>
         </div>
         <nav aria-label="Services">
-          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Services</h2>
+          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">Services</h2>
           <ul className="mt-2 grid gap-y-1 text-sm">
             {services.map((service) => (
               <li key={service.slug}>
@@ -48,7 +48,7 @@ export default function Footer() {
           </ul>
         </nav>
         <nav aria-label="Areas and industries">
-          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">
+          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
             Areas &amp; industries
           </h2>
           <ul className="mt-2 grid gap-y-1 text-sm">
@@ -62,7 +62,7 @@ export default function Footer() {
           </ul>
         </nav>
         <nav aria-label="Footer">
-          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Company</h2>
+          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">Company</h2>
           <ul className="mt-2 grid grid-cols-2 gap-x-8 gap-y-1 text-sm lg:grid-cols-1">
             {FOOTER_LINKS.map((link) => (
               <li key={link.to}>
@@ -75,7 +75,7 @@ export default function Footer() {
         </nav>
       </div>
       <div className="border-t border-slate-200 dark:border-white/10">
-        <p className="mx-auto max-w-[1120px] px-5 py-5 text-xs text-slate-500 sm:px-6">
+        <p className="mx-auto max-w-[1120px] px-5 py-5 text-xs text-slate-500 dark:text-slate-400 sm:px-6">
           © {new Date().getFullYear()} Blueframe Digital. All rights reserved.
         </p>
       </div>

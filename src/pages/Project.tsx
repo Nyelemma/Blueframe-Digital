@@ -73,20 +73,20 @@ export default function Project() {
         <aside>
           <dl className="grid gap-4 text-sm">
             <div>
-              <dt className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Industry</dt>
+              <dt className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">Industry</dt>
               <dd className="mt-1 font-medium">{project.industry}</dd>
             </div>
           </dl>
           <ul className="mt-6 space-y-3">
             {project.points.map((point) => (
               <li key={point} className="flex gap-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep dark:text-brand" />
+                <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep dark:text-brand-bright" />
                 {point}
               </li>
             ))}
           </ul>
           {project.preview === "designed" && (
-            <p className="mt-5 text-xs leading-relaxed text-slate-500">
+            <p className="mt-5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
               The frame shows a designed preview. The live website opens from the button.
             </p>
           )}
@@ -149,7 +149,7 @@ export default function Project() {
       )}
 
       <div className="mx-auto max-w-[1120px] px-5 pb-16 sm:px-6">
-        <h2 className="text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">More work</h2>
+        <h2 className="text-sm font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">More work</h2>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {related.map((item) => (
             <li key={item.slug}>
@@ -158,7 +158,7 @@ export default function Project() {
                 className="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-4 transition hover:border-ink dark:border-white/10 dark:hover:border-white/40"
               >
                 <span>
-                  <span className="block text-xs tracking-[0.14em] text-slate-500 uppercase">{item.category}</span>
+                  <span className="block text-xs tracking-[0.14em] text-slate-500 dark:text-slate-400 uppercase">{item.category}</span>
                   <span className="mt-1 block font-semibold">{item.name}</span>
                 </span>
                 <Icon name="arrow" className="h-4 w-4" />

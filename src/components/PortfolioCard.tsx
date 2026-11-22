@@ -46,7 +46,7 @@ export default function PortfolioCard({ project }: { project: Project }) {
       </a>
       <div className="mt-4 flex items-start justify-between gap-4">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
             {project.category}
             <span className="px-2 text-slate-300 dark:text-slate-600">/</span>
             {project.industry}
@@ -62,7 +62,7 @@ export default function PortfolioCard({ project }: { project: Project }) {
           {project.caseStudy && (
             <Link
               to={`/work/${project.slug}`}
-              className="mt-3 inline-flex min-h-9 items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 text-xs font-semibold text-brand-deep transition hover:border-brand dark:text-brand"
+              className="mt-3 inline-flex min-h-9 items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 text-xs font-semibold text-brand-deep transition hover:border-brand dark:text-brand-bright"
             >
               <Icon name="heart" className="h-3.5 w-3.5" />
               Read the {project.caseStudy.label.toLowerCase()}

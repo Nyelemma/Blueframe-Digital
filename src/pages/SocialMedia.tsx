@@ -108,7 +108,7 @@ export default function SocialMedia() {
         <ul className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3 dark:border-white/10 dark:bg-white/10">
           {services.map((service) => (
             <li key={service.title} className="h-full bg-white p-6 dark:bg-[#0c1222]">
-              <Icon name={service.icon} className="h-5 w-5 text-brand-deep dark:text-brand" />
+              <Icon name={service.icon} className="h-5 w-5 text-brand-deep dark:text-brand-bright" />
               <h3 className="mt-4 font-semibold">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{service.text}</p>
             </li>

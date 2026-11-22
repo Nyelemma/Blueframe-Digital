@@ -59,7 +59,7 @@ export default function Landing({ slug }: { slug: string }) {
         <ul className="grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4 dark:border-white/10 dark:bg-white/10">
           {page.highlights.map((item) => (
             <li key={item} className="flex items-start gap-2 bg-white p-5 text-sm font-medium dark:bg-[#0c1222]">
-              <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep dark:text-brand" />
+              <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand-deep dark:text-brand-bright" />
               {item}
             </li>
           ))}
@@ -110,7 +110,7 @@ export default function Landing({ slug }: { slug: string }) {
       <FaqList faqs={page.faqs} />
 
       <section className="mx-auto max-w-[1120px] px-5 pb-16 sm:px-6" aria-labelledby="landing-more-title">
-        <h2 id="landing-more-title" className="text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">
+        <h2 id="landing-more-title" className="text-sm font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
           Our services
         </h2>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -126,7 +126,7 @@ export default function Landing({ slug }: { slug: string }) {
             </li>
           ))}
         </ul>
-        <h2 className="mt-10 text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">
+        <h2 className="mt-10 text-sm font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
           Areas and industries
         </h2>
         <ul className="mt-4 flex flex-wrap gap-2">

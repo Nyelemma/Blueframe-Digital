@@ -145,7 +145,7 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-white/10 dark:bg-[#0c1222]" role="status">
-        <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+        <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
           Message sent
         </p>
         <h2 className="mt-3 text-2xl font-semibold tracking-tight">Thanks. We'll reply by email.</h2>
@@ -323,7 +323,7 @@ function Field({
     <label className="block text-sm font-medium" htmlFor={id}>
       <span>
         {label}
-        {required && <span className="text-brand-deep dark:text-brand"> *</span>}
+        {required && <span className="text-brand-deep dark:text-brand-bright"> *</span>}
       </span>
       <span className="mt-2 block font-normal">{children}</span>
       {error && (

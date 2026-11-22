@@ -77,11 +77,11 @@ export default function About() {
           </Link>
         </div>
         <aside className="rounded-[1.6rem] border border-slate-200 p-6 lg:col-span-5 dark:border-white/10">
-          <h2 className="text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">How it works</h2>
+          <h2 className="text-sm font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">How it works</h2>
           <ol className="mt-5 space-y-5">
             {steps.map((step, index) => (
               <li key={step.title} className="grid grid-cols-[auto_1fr] gap-3">
-                <span className="text-xs font-semibold tracking-[0.14em] text-brand-deep dark:text-brand">
+                <span className="text-xs font-semibold tracking-[0.14em] text-brand-deep dark:text-brand-bright">
                   0{index + 1}
                 </span>
                 <div>

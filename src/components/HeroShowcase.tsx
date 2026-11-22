@@ -116,13 +116,18 @@ export default function HeroShowcase() {
         Showing the {scenes[active].name} website
       </p>
 
-      <div className="flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label="Example websites, scroll sideways for more"
+        className="flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto rounded-2xl pb-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
+      >
         {scenes.map((scene, index) => (
           <div key={scene.id} className="w-[min(85vw,22rem)] shrink-0 snap-center">
             <BrowserFrame url={scene.url}>
               <Shot image={scene.image} name={scene.name} eager={index === 0} />
             </BrowserFrame>
-            <p className="mt-3 text-center text-xs font-medium tracking-[0.16em] text-slate-500 uppercase">
+            <p className="mt-3 text-center text-xs font-medium tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
               {scene.label}
             </p>
           </div>

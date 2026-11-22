@@ -49,7 +49,7 @@ export default function FeatureGrid() {
     <section className="border-t border-slate-200 dark:border-white/10" aria-labelledby="features-title">
       <div className="mx-auto max-w-[1120px] px-5 py-20 sm:px-6 md:py-28">
         <Reveal>
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-brand-deep uppercase dark:text-brand-bright">
             What you get
           </p>
           <h2
@@ -64,7 +64,7 @@ export default function FeatureGrid() {
             <li key={feature.title} className="border-r border-b border-slate-200 dark:border-white/10">
               <Reveal delay={(index % 4) * 0.04} className="h-full">
                 <article className="group h-full p-6 transition-colors hover:bg-white dark:hover:bg-white/[0.03]">
-                  <span className="inline-grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-brand-deep transition group-hover:-translate-y-0.5 group-hover:border-brand/40 dark:border-white/10 dark:text-brand">
+                  <span className="inline-grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-brand-deep transition group-hover:-translate-y-0.5 group-hover:border-brand/40 dark:border-white/10 dark:text-brand-bright">
                     <Icon name={feature.icon} className="h-5 w-5" />
                   </span>
                   <h3 className="mt-5 text-base font-semibold tracking-tight">{feature.title}</h3>

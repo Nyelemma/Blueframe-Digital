@@ -16,7 +16,7 @@ export default function FaqList({ faqs, title = "Frequently asked questions" }: 
                 <h3 className="text-base">{faq.q}</h3>
                 <Icon
                   name="arrow"
-                  className="h-4 w-4 shrink-0 rotate-90 text-slate-500 transition-transform group-open:-rotate-90"
+                  className="h-4 w-4 shrink-0 rotate-90 text-slate-500 dark:text-slate-400 transition-transform group-open:-rotate-90"
                 />
               </summary>
               <p className="pb-5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{faq.a}</p>
