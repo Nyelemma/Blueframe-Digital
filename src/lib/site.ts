@@ -11,7 +11,7 @@ export const WHATSAPP_URL = "https://wa.me/447943869697";
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/work", label: "Our Work" },
-  { to: "/social-media", label: "Social Media" },
+  { to: "/services", label: "Services" },
   { to: "/pricing", label: "Pricing" },
   { to: "/about", label: "About" },
 ] as const;
@@ -19,6 +19,19 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   ...NAV_LINKS,
   { to: "/contact", label: "Contact" },
+] as const;
+
+export const SOCIAL_LINKS = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61595901387155",
+    icon: "facebook",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/blueframe_digital/",
+    icon: "instagram",
+  },
 ] as const;
 
 export function absoluteUrl(path: string) {
@@ -50,8 +63,14 @@ export const PAGE_META = {
     description:
       "Websites designed by Blueframe Digital for trades, clubs, coaches and other small businesses. Each project links to the live site.",
   },
+  services: {
+    path: "/services",
+    title: "Services | Websites, Online Stores & Social Media | Blueframe Digital",
+    description:
+      "Website design from £199, online stores from £15 a month, custom websites, and social media management from £99 a month for small businesses.",
+  },
   social: {
-    path: "/social-media",
+    path: "/services/social-media",
     title: "Social Media Management for Small Businesses | Blueframe Digital",
     description:
       "Social media management for small businesses from £99 a month. Blueframe Digital plans, writes and posts so you can stay active online.",

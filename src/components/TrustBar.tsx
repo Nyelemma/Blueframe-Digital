@@ -1,5 +1,7 @@
 const names = [
   "Arcta Group",
+  "The Haunting On South Road",
+  "APN Photography",
   "Morecambe Girls FC",
   "Morecambe Gas Services",
   "MN Coaching",

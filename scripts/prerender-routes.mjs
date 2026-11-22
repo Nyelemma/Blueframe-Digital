@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import projects from "../src/content/projects.json" with { type: "json" };
+import services from "../src/content/services.json" with { type: "json" };
 
 function resolveSiteUrl() {
   if (process.env.VERCEL) {
@@ -34,12 +35,19 @@ const pages = [
       "Websites designed by Blueframe Digital for trades, clubs, coaches and other small businesses. Each project links to the live site.",
   },
   {
-    path: "/social-media",
-    out: "social-media/index.html",
-    title: "Social Media Management for Small Businesses | Blueframe Digital",
+    path: "/services",
+    out: "services/index.html",
+    title: "Services | Websites, Online Stores & Social Media | Blueframe Digital",
     description:
-      "Social media management for small businesses from £99 a month. Blueframe Digital plans, writes and posts so you can stay active online.",
+      "Website design from £199, online stores from £15 a month, custom websites, and social media management from £99 a month for small businesses.",
   },
+  ...services.map((service) => ({
+    path: `/services/${service.slug}`,
+    out: `services/${service.slug}/index.html`,
+    title: service.title,
+    description: service.description,
+    crumb: service.name,
+  })),
   {
     path: "/pricing",
     out: "pricing/index.html",
@@ -100,10 +108,12 @@ function jsonLd(page) {
       current += `/${part}`;
       const name =
         index === parts.length - 1
-          ? page.title.split("|")[0].trim()
+          ? page.crumb || page.title.split("|")[0].trim()
           : part === "work"
             ? "Our Work"
-            : part;
+            : part === "services"
+              ? "Services"
+              : part;
       crumbs.push({ name, item: `${site}${current}` });
     });
   }

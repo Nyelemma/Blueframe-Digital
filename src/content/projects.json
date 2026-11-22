@@ -17,6 +17,68 @@
     ]
   },
   {
+    "slug": "the-haunting-on-south-road",
+    "name": "The Haunting On South Road",
+    "url": "https://www.thehauntingonsouthroad.com/",
+    "category": "Community",
+    "industry": "Charity fundraiser",
+    "location": "Morecambe",
+    "image": "haunting",
+    "preview": "screenshot",
+    "summary": "A Halloween haunted house in Morecambe raising money for CancerCare. Built free of charge for our local community.",
+    "description": "Every October, 80 South Road in Morecambe becomes a haunted house for all ages, built to frighten and to raise money for CancerCare. We designed and built its website free of charge, as a way of giving something back to our local community.",
+    "points": [
+      "A cinematic, story-led site that feels as eerie as the house itself",
+      "Fundraising totals and a direct route to support CancerCare",
+      "Dates, directions, gallery, sponsors and BBC News footage in one place"
+    ],
+    "caseStudy": {
+      "label": "Charity case study",
+      "cause": "CancerCare",
+      "causeUrl": "https://cancercare.org.uk/",
+      "stats": [
+        { "value": "£0", "label": "Charged for the website" },
+        { "value": "£21,000+", "label": "Raised for CancerCare since 2020, including The Big Give match funding" },
+        { "value": "BBC News", "label": "Featured, alongside the Lancaster Guardian and Beyond Radio" }
+      ],
+      "sections": [
+        {
+          "title": "Why we did it for free",
+          "text": "The Haunting is a genuine community effort: local businesses help set it up and sponsor it, local people help clean up, and local dance groups take part, all to raise money for CancerCare. We wanted to play our part too, so we built the website at no cost as our way of giving something back to our local community."
+        },
+        {
+          "title": "The brief",
+          "text": "The house needed a home online that matched the experience: something that builds atmosphere, tells people when and where to come, and turns a fright into a donation. It also needed to thank the sponsors who make it happen and give the community somewhere to share the night."
+        },
+        {
+          "title": "What we built",
+          "text": "A dark, cinematic site laid out like a case file. It covers what the Haunting is, why it matters, a photo gallery, live fundraising totals, opening dates with directions and a click-to-load map, a sponsors wall with a route to become a sponsor, and the BBC News coverage. Calls to support CancerCare sit throughout, so every visit can lead to a donation."
+        },
+        {
+          "title": "The result",
+          "text": "The Haunting now has a professional website that does justice to the effort the community puts in, gives sponsors visibility, and points visitors straight to CancerCare. Over £21,000 has been raised for the charity since 2020."
+        }
+      ]
+    }
+  },
+  {
+    "slug": "apn-photography",
+    "name": "APN Photography",
+    "url": "https://apn-photography.co.uk/",
+    "category": "Business",
+    "industry": "Sport & event photography",
+    "location": "North West",
+    "image": "apn",
+    "preview": "screenshot",
+    "summary": "Sport and event photography across the North West, from match days to golf days.",
+    "description": "APN Photography's website showcases 25 years of sport and event photography, from football, golf, boxing, rugby and cricket to corporate golf days, with a clear route for clubs, societies and companies to book a commission.",
+    "points": [
+      "A portfolio-led design that puts the photography first",
+      "Match-day and golf-day coverage explained step by step",
+      "FAQs, opening hours and a simple way to book a commission"
+    ]
+  },
+  {
     "slug": "morecambe-girls-fc",
     "name": "Morecambe Girls FC",
     "url": "https://www.morecambegirlsfc.com/",

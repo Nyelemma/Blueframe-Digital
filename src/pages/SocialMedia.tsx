@@ -54,12 +54,13 @@ export default function SocialMedia() {
           serviceNode(
             "Social media management",
             "Content creation, planning, captions and posting for small businesses, from £99 a month.",
-            "/social-media",
+            "/services/social-media",
             "99",
           ),
           breadcrumbNode([
             { name: "Home", path: "/" },
-            { name: "Social Media", path: "/social-media" },
+            { name: "Services", path: "/services" },
+            { name: "Social Media Management", path: "/services/social-media" },
           ]),
         )}
       />
@@ -68,7 +69,8 @@ export default function SocialMedia() {
         title="Don't have time to manage your socials?"
         crumbs={[
           { label: "Home", to: "/" },
-          { label: "Social Media" },
+          { label: "Services", to: "/services" },
+          { label: "Social Media Management" },
         ]}
       >
         <p className="text-2xl font-semibold tracking-tight text-ink dark:text-white">We'll do it for you.</p>

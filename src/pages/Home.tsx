@@ -49,7 +49,7 @@ export default function Home() {
           serviceNode(
             "Social media management",
             "Content planning, captions and posting for small businesses, from £99 a month.",
-            "/social-media",
+            "/services/social-media",
             "99",
           ),
           breadcrumbNode([{ name: "Home", path: "/" }]),
@@ -140,7 +140,7 @@ export default function Home() {
             </p>
           </div>
           <div className="md:justify-self-end">
-            <Link to="/social-media" className={primaryBtn}>
+            <Link to="/services/social-media" className={primaryBtn}>
               Talk About Your Socials
               <Icon name="arrow" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>

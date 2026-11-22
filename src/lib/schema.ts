@@ -1,4 +1,4 @@
-import { absoluteUrl, SITE_NAME, SITE_URL } from "./site";
+import { absoluteUrl, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "./site";
 
 const areaServed = { "@type": "Country", name: "United Kingdom" };
 
@@ -13,6 +13,7 @@ export function organizationNode() {
     description:
       "Blueframe Digital designs modern, fast websites for small and local businesses, with websites from £199, online stores from £15 a month, and social media management from £99 a month.",
     areaServed,
+    sameAs: SOCIAL_LINKS.map((social) => social.href),
     priceRange: "££",
     knowsAbout: [
       "Web design",

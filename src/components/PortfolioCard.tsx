@@ -59,6 +59,16 @@ export default function PortfolioCard({ project }: { project: Project }) {
           <p className="mt-1 max-w-prose text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             {project.summary}
           </p>
+          {project.caseStudy && (
+            <Link
+              to={`/work/${project.slug}`}
+              className="mt-3 inline-flex min-h-9 items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 text-xs font-semibold text-brand-deep transition hover:border-brand dark:text-brand"
+            >
+              <Icon name="heart" className="h-3.5 w-3.5" />
+              Read the {project.caseStudy.label.toLowerCase()}
+              <Icon name="arrow" className="h-3.5 w-3.5" />
+            </Link>
+          )}
         </div>
       </div>
     </article>

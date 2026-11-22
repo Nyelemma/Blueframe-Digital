@@ -103,7 +103,7 @@ export default function Pricing() {
           serviceNode(
             "Social media management",
             "Social media management from £99 a month.",
-            "/social-media",
+            "/services/social-media",
             "99",
           ),
           breadcrumbNode([

@@ -7,10 +7,19 @@ export const CATEGORIES = [
   "Trades",
   "Coaching",
   "Services",
+  "Community",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
 export type ProjectCategory = Exclude<Category, "All">;
+
+export type CaseStudy = {
+  label: string;
+  cause: string;
+  causeUrl?: string;
+  stats: { value: string; label: string }[];
+  sections: { title: string; text: string }[];
+};
 
 export type Project = {
   slug: string;
@@ -24,6 +33,7 @@ export type Project = {
   summary: string;
   description: string;
   points: string[];
+  caseStudy?: CaseStudy;
 };
 
 export const projects = data as Project[];

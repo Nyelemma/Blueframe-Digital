@@ -1,0 +1,144 @@
+[
+  {
+    "slug": "web-design",
+    "name": "Website Design",
+    "short": "Professional websites for small and local businesses.",
+    "icon": "design",
+    "price": "£199",
+    "priceNote": "From",
+    "priceUnit": "",
+    "lowPrice": "199",
+    "title": "Small Business Website Design from £199 | Blueframe Digital",
+    "description": "Professional, mobile-first websites for small businesses from £199. Modern design, SEO foundations and contact forms, without the £5,000+ agency price tag.",
+    "headline": "A great website shouldn't cost a fortune.",
+    "intro": "High-quality, modern websites built for small and local businesses. Professional design without the £5,000+ agency price tag, and a clear price before we start.",
+    "audience": [
+      "You don't have a website yet, and people hear about you then have nowhere solid to look",
+      "Your current site is outdated and no longer reflects the business",
+      "You'd rather be doing the work than wrestling with a website builder"
+    ],
+    "included": [
+      "Professional, custom design",
+      "Mobile responsive",
+      "SEO foundations",
+      "Contact forms",
+      "Social media integration",
+      "Google Maps where relevant",
+      "Fast performance",
+      "Launch support"
+    ],
+    "tiers": [
+      {
+        "name": "Website Starter",
+        "price": "From £199",
+        "text": "For small businesses that need a professional online presence. A focused site with a contact form, social links and basic SEO.",
+        "to": "/contact?need=website&budget=starter"
+      },
+      {
+        "name": "Business Website",
+        "price": "From £399",
+        "text": "For businesses that need more room to showcase their services. Multi-page, with a gallery or portfolio, Google Maps and analytics.",
+        "to": "/contact?need=website&budget=business"
+      }
+    ],
+    "cta": "Start Your Website",
+    "ctaTo": "/contact?need=website",
+    "workCategories": ["Trades", "Sports", "Coaching", "Services", "Community"]
+  },
+  {
+    "slug": "online-stores",
+    "name": "Online Stores",
+    "short": "A proper online store for a small business, cheaper than Shopify.",
+    "icon": "store",
+    "price": "£15",
+    "priceNote": "From",
+    "priceUnit": "/month",
+    "lowPrice": "15",
+    "title": "Online Stores for Small Businesses from £15 a Month | Blueframe Digital",
+    "description": "Online stores for small businesses from £15 a month, cheaper than Shopify. Product pages, a store that works on phones, and a price agreed before anything goes live.",
+    "headline": "Sell online without the Shopify bill.",
+    "intro": "A proper online store for a small business, set up for you and priced monthly. Cheaper than Shopify, and the price is agreed before anything goes live.",
+    "audience": [
+      "You sell products and want customers to be able to buy online",
+      "You've looked at Shopify and the monthly costs don't add up for a small business",
+      "You want a store set up for you, rather than building one yourself"
+    ],
+    "included": [
+      "Product pages for what you sell",
+      "A store that works on phones",
+      "Set up for a small business",
+      "Designed to match your brand",
+      "Price agreed before anything goes live",
+      "Support when you want changes"
+    ],
+    "tiers": [
+      {
+        "name": "Online Store",
+        "price": "From £15/month",
+        "text": "A small-business store with product pages that work on any device. Larger ecommerce builds are scoped as custom projects.",
+        "to": "/contact?need=store&budget=store"
+      }
+    ],
+    "cta": "Start a Store",
+    "ctaTo": "/contact?need=store&budget=store",
+    "workCategories": ["Business"]
+  },
+  {
+    "slug": "custom-websites",
+    "name": "Custom Websites",
+    "short": "Booking systems, memberships and custom functionality.",
+    "icon": "code",
+    "price": "Let's Talk",
+    "priceNote": "Scoped",
+    "priceUnit": "",
+    "lowPrice": "",
+    "title": "Custom Websites, Booking & Membership Systems | Blueframe Digital",
+    "description": "Custom websites for businesses that need more: booking systems, membership systems, larger ecommerce builds and advanced integrations. Scoped and priced before work begins.",
+    "headline": "When your business needs more than pages.",
+    "intro": "For businesses requiring more advanced functionality. We scope the project with you, agree a clear price, then design and build it properly.",
+    "audience": [
+      "Customers need to book, register or pay through the website",
+      "You run a club or membership and want it managed online",
+      "You need the site to connect with other tools you already use"
+    ],
+    "included": [
+      "Booking systems",
+      "Membership systems",
+      "Larger ecommerce builds",
+      "Advanced integrations",
+      "Custom functionality",
+      "Everything in our Business Website"
+    ],
+    "tiers": [
+      {
+        "name": "Custom",
+        "price": "Let's Talk",
+        "text": "Every custom build is different. Tell us what you need, and you'll get a clear quote before any work starts.",
+        "to": "/contact?need=other&budget=custom"
+      }
+    ],
+    "cta": "Discuss Your Project",
+    "ctaTo": "/contact?need=other&budget=custom",
+    "workCategories": ["Business", "Sports"]
+  },
+  {
+    "slug": "social-media",
+    "name": "Social Media Management",
+    "short": "We plan it, write it and post it, from £99 a month.",
+    "icon": "send",
+    "price": "£99",
+    "priceNote": "From",
+    "priceUnit": "/month",
+    "lowPrice": "99",
+    "title": "Social Media Management for Small Businesses | Blueframe Digital",
+    "description": "Social media management for small businesses from £99 a month. Blueframe Digital plans, writes and posts so you can stay active online.",
+    "headline": "Don't have time to manage your socials?",
+    "intro": "We'll plan it, write it and post it.",
+    "audience": [],
+    "included": [],
+    "tiers": [],
+    "cta": "Talk About Your Socials",
+    "ctaTo": "/contact?need=social&budget=social",
+    "workCategories": []
+  }
+]

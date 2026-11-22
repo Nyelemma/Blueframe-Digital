@@ -18,6 +18,7 @@ export default function Project() {
   const related = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
   const title = `${project.name} | Work by ${SITE_NAME}`;
   const host = displayHost(project.url);
+  const caseStudy = project.caseStudy;
   const alt =
     project.preview === "screenshot"
       ? `Homepage of the ${project.name} website`
@@ -101,6 +102,51 @@ export default function Project() {
           </div>
         </aside>
       </div>
+
+      {caseStudy && (
+        <section className="mx-auto max-w-[1120px] px-5 py-12 sm:px-6" aria-labelledby="case-study-title">
+          <div className="rounded-[1.8rem] bg-night p-6 text-white sm:p-10">
+            <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] text-[#8eb6ff] uppercase">
+              <Icon name="heart" className="h-4 w-4" />
+              {caseStudy.label}
+            </p>
+            <h2 id="case-study-title" className="mt-4 max-w-[20ch] text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              Giving something back to our local community.
+            </h2>
+            <dl className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-3">
+              {caseStudy.stats.map((stat) => (
+                <div key={stat.label} className="bg-night p-5 sm:p-6">
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block text-3xl font-semibold tracking-[-0.04em]">{stat.value}</span>
+                    <span className="mt-2 block text-sm leading-relaxed text-slate-400">{stat.label}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div className="mt-12 grid gap-10 md:grid-cols-2">
+            {caseStudy.sections.map((section) => (
+              <article key={section.title}>
+                <h3 className="text-xl font-semibold tracking-tight">{section.title}</h3>
+                <p className="mt-3 leading-relaxed text-slate-600 dark:text-slate-400">{section.text}</p>
+              </article>
+            ))}
+          </div>
+          {caseStudy.causeUrl && (
+            <a
+              href={caseStudy.causeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${secondaryBtn} mt-10`}
+            >
+              Support {caseStudy.cause}
+              <Icon name="arrow" className="h-4 w-4" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          )}
+        </section>
+      )}
 
       <div className="mx-auto max-w-[1120px] px-5 pb-16 sm:px-6">
         <h2 className="text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">More work</h2>

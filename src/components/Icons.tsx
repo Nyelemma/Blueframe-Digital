@@ -19,9 +19,22 @@ type IconName =
   | "caption"
   | "brand"
   | "refresh"
-  | "whatsapp";
+  | "store"
+  | "code"
+  | "heart"
+  | "whatsapp"
+  | "facebook"
+  | "instagram";
 
-const paths: Record<Exclude<IconName, "arrow" | "check" | "sun" | "moon" | "menu" | "close" | "whatsapp">, string> = {
+export type { IconName };
+
+const paths: Record<
+  Exclude<IconName, "arrow" | "check" | "sun" | "moon" | "menu" | "close" | "whatsapp" | "facebook" | "instagram">,
+  string
+> = {
+  store: "M4.5 9.5 6 4.5h12l1.5 5M4.5 9.5h15M4.5 9.5a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0M6 12v7.5h12V12M10 19.5v-4h4v4",
+  code: "M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15",
+  heart: "M12 19.5s-7.5-4.4-7.5-9.7A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6c0 5.3-7.5 9.7-7.5 9.7Z",
   design:
     "M4 16.5 12 4l8 12.5M7 14h10M9.5 19.5h5",
   mobile:
@@ -117,6 +130,27 @@ export default function Icon({
           fill="currentColor"
           d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10.1 10.1 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2Zm5.76 13.9c-.24.68-1.4 1.25-1.93 1.33-.49.07-1.1.1-1.78-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.7-4.1-4.84-4.29-.14-.19-1.15-1.53-1.15-2.92s.73-2.07 1-2.35c.24-.28.64-.41 1.02-.41.12 0 .23 0 .33.01.3.01.44.03.64.49.24.58.82 2 .89 2.15.07.14.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.13-.28.28-.12.54.16.26.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.17.67-.78.85-1.05.18-.26.36-.22.6-.13.24.09 1.53.72 1.79.85.26.13.44.2.5.31.07.11.07.64-.17 1.32Z"
         />
+      </svg>
+    );
+  }
+
+  if (name === "facebook") {
+    return (
+      <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3A21 21 0 0 0 14.3 4c-2.3 0-3.9 1.4-3.9 4v2.4H7.8v3h2.6V21h3.1Z"
+        />
+      </svg>
+    );
+  }
+
+  if (name === "instagram") {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <rect x="3.75" y="3.75" width="16.5" height="16.5" rx="4.75" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="12" cy="12" r="3.9" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" />
       </svg>
     );
   }

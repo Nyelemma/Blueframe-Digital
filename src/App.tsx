@@ -1,11 +1,13 @@
 import { Component, lazy, Suspense, type ReactNode } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./lib/theme";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 
 const Work = lazy(() => import("./pages/Work"));
 const Project = lazy(() => import("./pages/Project"));
+const Services = lazy(() => import("./pages/Services"));
+const Service = lazy(() => import("./pages/Service"));
 const SocialMedia = lazy(() => import("./pages/SocialMedia"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const About = lazy(() => import("./pages/About"));
@@ -52,7 +54,10 @@ export default function App() {
                 <Route index element={<Home />} />
                 <Route path="work" element={<Work />} />
                 <Route path="work/:slug" element={<Project />} />
-                <Route path="social-media" element={<SocialMedia />} />
+                <Route path="services" element={<Services />} />
+                <Route path="services/social-media" element={<SocialMedia />} />
+                <Route path="services/:slug" element={<Service />} />
+                <Route path="social-media" element={<Navigate to="/services/social-media" replace />} />
                 <Route path="pricing" element={<Pricing />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
