@@ -8,7 +8,9 @@ import NotFound from "./NotFound";
 import { projects } from "../lib/projects";
 import { serviceBySlug, servicePath, services } from "../lib/services";
 import { primaryBtn, primaryBtnLight, secondaryBtn } from "../lib/classes";
-import { breadcrumbNode, graph, organizationNode, serviceNode } from "../lib/schema";
+import { breadcrumbNode, faqNode, graph, organizationNode, serviceNode } from "../lib/schema";
+import { landings } from "../lib/landings";
+import FaqList from "../components/FaqList";
 
 const steps = [
   {
@@ -49,6 +51,7 @@ export default function Service() {
         jsonLd={graph(
           organizationNode(),
           serviceNode(service.name, service.description, path, service.lowPrice || undefined),
+          faqNode(service.faqs),
           breadcrumbNode([
             { name: "Home", path: "/" },
             { name: "Services", path: "/services" },
@@ -179,6 +182,8 @@ export default function Service() {
         </section>
       )}
 
+      <FaqList faqs={service.faqs} />
+
       <section className="mx-auto max-w-[1120px] px-5 pb-16 sm:px-6" aria-labelledby="other-services-title">
         <h2 id="other-services-title" className="text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">
           Other services
@@ -197,6 +202,21 @@ export default function Service() {
                   </span>
                 </span>
                 <Icon name="arrow" className="h-4 w-4 shrink-0" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <h2 className="mt-10 text-sm font-semibold tracking-[0.16em] text-slate-500 uppercase">
+          Areas, industries and guides
+        </h2>
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {landings.map((item) => (
+            <li key={item.slug}>
+              <Link
+                to={`/${item.slug}`}
+                className="inline-flex min-h-11 items-center rounded-full border border-slate-200 px-4 text-sm text-slate-600 transition hover:border-ink hover:text-ink dark:border-white/10 dark:text-slate-300 dark:hover:border-white/40 dark:hover:text-white"
+              >
+                {item.label}
               </Link>
             </li>
           ))}

@@ -8,8 +8,8 @@
     "priceNote": "From",
     "priceUnit": "",
     "lowPrice": "199",
-    "title": "Small Business Website Design from £199 | Blueframe Digital",
-    "description": "Professional, mobile-first websites for small businesses from £199. Modern design, SEO foundations and contact forms, without the £5,000+ agency price tag.",
+    "title": "Affordable Website Design for Small Businesses UK | From £199",
+    "description": "Affordable website design for UK small businesses from £199. Custom, mobile-first websites with SEO foundations and contact forms, without agency prices.",
     "headline": "A great website shouldn't cost a fortune.",
     "intro": "High-quality, modern websites built for small and local businesses. Professional design without the £5,000+ agency price tag, and a clear price before we start.",
     "audience": [
@@ -43,7 +43,35 @@
     ],
     "cta": "Start Your Website",
     "ctaTo": "/contact?need=website",
-    "workCategories": ["Trades", "Sports", "Coaching", "Services", "Community"]
+    "workCategories": [
+      "Trades",
+      "Sports",
+      "Coaching",
+      "Services",
+      "Community"
+    ],
+    "faqs": [
+      {
+        "q": "How much does a small business website cost?",
+        "a": "Our Website Starter begins at £199 and our multi-page Business Website at £399. Custom builds with booking, membership or larger ecommerce features are quoted individually. You always get a clear price before we start."
+      },
+      {
+        "q": "Is a £199 website any good?",
+        "a": "Yes. It is a custom-designed, mobile-responsive website with a contact form, social links and basic SEO setup, built for small businesses that need a professional online presence. If you need more pages, a gallery or analytics, the Business Website from £399 covers that."
+      },
+      {
+        "q": "Do you use templates?",
+        "a": "No. Every website is designed around your business rather than a generic template."
+      },
+      {
+        "q": "Will my website be SEO friendly?",
+        "a": "Yes. Every site includes SEO foundations: page titles and descriptions, a clear heading structure, fast loading, mobile-friendly layouts and structured data."
+      },
+      {
+        "q": "What about hosting and domain names?",
+        "a": "Hosting and domain names are discussed separately, before you commit, so there are no surprises."
+      }
+    ]
   },
   {
     "slug": "online-stores",
@@ -54,8 +82,8 @@
     "priceNote": "From",
     "priceUnit": "/month",
     "lowPrice": "15",
-    "title": "Online Stores for Small Businesses from £15 a Month | Blueframe Digital",
-    "description": "Online stores for small businesses from £15 a month, cheaper than Shopify. Product pages, a store that works on phones, and a price agreed before anything goes live.",
+    "title": "Shopify Alternative UK | Online Stores from £15 a Month",
+    "description": "A cheaper Shopify alternative for UK small businesses. Online stores set up for you from £15 a month, with mobile-friendly product pages and upfront pricing.",
     "headline": "Sell online without the Shopify bill.",
     "intro": "A proper online store for a small business, set up for you and priced monthly. Cheaper than Shopify, and the price is agreed before anything goes live.",
     "audience": [
@@ -81,7 +109,27 @@
     ],
     "cta": "Start a Store",
     "ctaTo": "/contact?need=store&budget=store",
-    "workCategories": ["Business"]
+    "workCategories": [
+      "Business"
+    ],
+    "faqs": [
+      {
+        "q": "Is this cheaper than Shopify?",
+        "a": "Our online stores start from £15 a month, which is cheaper than Shopify for most small businesses, and we set the store up for you."
+      },
+      {
+        "q": "Do I have to build the store myself?",
+        "a": "No. We set up the store, product pages and design for you, then hand it over ready to sell."
+      },
+      {
+        "q": "Will the store work on mobile phones?",
+        "a": "Yes. Every store is designed to work well on phones, where most shoppers browse and buy."
+      },
+      {
+        "q": "What if I need a larger ecommerce website?",
+        "a": "Larger ecommerce builds are scoped as custom projects. Tell us what you sell and we will give you a clear quote."
+      }
+    ]
   },
   {
     "slug": "custom-websites",
@@ -92,8 +140,8 @@
     "priceNote": "Scoped",
     "priceUnit": "",
     "lowPrice": "",
-    "title": "Custom Websites, Booking & Membership Systems | Blueframe Digital",
-    "description": "Custom websites for businesses that need more: booking systems, membership systems, larger ecommerce builds and advanced integrations. Scoped and priced before work begins.",
+    "title": "Custom Website Development | Booking & Membership Sites",
+    "description": "Custom websites for businesses and clubs: booking systems, membership sites, larger ecommerce builds and integrations. Scoped and priced before work begins.",
     "headline": "When your business needs more than pages.",
     "intro": "For businesses requiring more advanced functionality. We scope the project with you, agree a clear price, then design and build it properly.",
     "audience": [
@@ -119,7 +167,24 @@
     ],
     "cta": "Discuss Your Project",
     "ctaTo": "/contact?need=other&budget=custom",
-    "workCategories": ["Business", "Sports"]
+    "workCategories": [
+      "Business",
+      "Sports"
+    ],
+    "faqs": [
+      {
+        "q": "Can you build a website with a booking system?",
+        "a": "Yes. Booking systems are one of our custom builds. Tell us how your bookings work and we will scope the right solution."
+      },
+      {
+        "q": "Can you build a membership website for a club?",
+        "a": "Yes. Membership systems for clubs and organisations are part of our custom website service."
+      },
+      {
+        "q": "How much does a custom website cost?",
+        "a": "Every custom build is different, so we scope it with you first and give you a clear quote before any work starts."
+      }
+    ]
   },
   {
     "slug": "social-media",
@@ -139,6 +204,24 @@
     "tiers": [],
     "cta": "Talk About Your Socials",
     "ctaTo": "/contact?need=social&budget=social",
-    "workCategories": []
+    "workCategories": [],
+    "faqs": [
+      {
+        "q": "How much does social media management cost?",
+        "a": "Our social media management starts from £99 a month. We confirm the scope and price with you before anything goes live."
+      },
+      {
+        "q": "What is included in social media management?",
+        "a": "Content creation, content planning, captions, scheduling and posting, brand consistency and ongoing day-to-day management."
+      },
+      {
+        "q": "Do I still have control of my accounts?",
+        "a": "Yes. They are your accounts, and we plan and post on your behalf."
+      },
+      {
+        "q": "Can you manage social media and build my website?",
+        "a": "Yes. Many clients have us build their website and keep their social media active, so everything looks consistent."
+      }
+    ]
   }
 ]

@@ -1,81 +1,19 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+// Prerenders every route to static HTML after `vite build` + the SSR build.
+// Crawlers (and visitors before JS loads) get the full page content, title,
+// description, canonical and JSON-LD for each URL. The browser then hydrates it.
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import projects from "../src/content/projects.json" with { type: "json" };
-import services from "../src/content/services.json" with { type: "json" };
+import { pathToFileURL } from "node:url";
+
+const CANONICAL_SITE = "https://www.blueframedigital.co.uk";
 
 function resolveSiteUrl() {
   if (process.env.VERCEL) {
     const host = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
     if (host) return `https://${host}`.replace(/\/$/, "");
   }
-  return (
-    process.env.VITE_SITE_URL ||
-    readSiteUrl() ||
-    "https://nyelemma.github.io/Blueframe-Digital"
-  ).replace(/\/$/, "");
+  return (process.env.VITE_SITE_URL || readSiteUrl() || CANONICAL_SITE).replace(/\/$/, "");
 }
-
-const site = resolveSiteUrl();
-
-const description =
-  "Professional websites for small businesses from £199. Blueframe Digital creates modern, fast and SEO-ready websites designed to help local businesses grow.";
-
-const pages = [
-  {
-    path: "/",
-    out: "index.html",
-    title: "Blueframe Digital | Web Design for Small Businesses",
-    description,
-  },
-  {
-    path: "/work",
-    out: "work/index.html",
-    title: "Our Work | Small Business Websites | Blueframe Digital",
-    description:
-      "Websites designed by Blueframe Digital for trades, clubs, coaches and other small businesses. Each project links to the live site.",
-  },
-  {
-    path: "/services",
-    out: "services/index.html",
-    title: "Services | Websites, Online Stores & Social Media | Blueframe Digital",
-    description:
-      "Website design from £199, online stores from £15 a month, custom websites, and social media management from £99 a month for small businesses.",
-  },
-  ...services.map((service) => ({
-    path: `/services/${service.slug}`,
-    out: `services/${service.slug}/index.html`,
-    title: service.title,
-    description: service.description,
-    crumb: service.name,
-  })),
-  {
-    path: "/pricing",
-    out: "pricing/index.html",
-    title: "Website Pricing from £199 | Blueframe Digital",
-    description:
-      "Websites from £199, online stores from £15 a month, and social media management from £99 a month. Clear starting prices before any work begins.",
-  },
-  {
-    path: "/about",
-    out: "about/index.html",
-    title: "About Blueframe Digital | Websites for Small Businesses",
-    description:
-      "Blueframe Digital builds professional websites for small businesses. Studio quality, without the agency price tag.",
-  },
-  {
-    path: "/contact",
-    out: "contact/index.html",
-    title: "Contact Blueframe Digital | Start a Website",
-    description:
-      "Start a website, online store or social media project with Blueframe Digital. Email us or send a WhatsApp message.",
-  },
-  ...projects.map((project) => ({
-    path: `/work/${project.slug}`,
-    out: `work/${project.slug}/index.html`,
-    title: `${project.name} | Work by Blueframe Digital`,
-    description: project.summary,
-  })),
-];
 
 function readSiteUrl() {
   try {
@@ -86,6 +24,10 @@ function readSiteUrl() {
     return "";
   }
 }
+
+const site = resolveSiteUrl();
+const serverDir = resolve("dist-ssr");
+const { render, routes } = await import(pathToFileURL(resolve(serverDir, "entry-server.js")).href);
 
 function escapeText(value) {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -99,123 +41,69 @@ function pageUrl(path) {
   return path === "/" ? `${site}/` : `${site}${path}`;
 }
 
-function jsonLd(page) {
-  const crumbs = [{ name: "Home", item: `${site}/` }];
-  if (page.path !== "/") {
-    const parts = page.path.split("/").filter(Boolean);
-    let current = "";
-    parts.forEach((part, index) => {
-      current += `/${part}`;
-      const name =
-        index === parts.length - 1
-          ? page.crumb || page.title.split("|")[0].trim()
-          : part === "work"
-            ? "Our Work"
-            : part === "services"
-              ? "Services"
-              : part;
-      crumbs.push({ name, item: `${site}${current}` });
-    });
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "ProfessionalService"],
-        name: "Blueframe Digital",
-        url: `${site}/`,
-        areaServed: { "@type": "Country", name: "United Kingdom" },
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "GB",
-        },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: crumbs.map((crumb, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: crumb.name,
-          item: crumb.item,
-        })),
-      },
-    ],
-  };
+function setMeta(html, selector, attr, value) {
+  const pattern = new RegExp(`<meta ${selector} content="[^"]*"`);
+  return html.replace(pattern, `<meta ${selector} ${attr}="${escapeAttr(value)}"`);
 }
 
-function apply(html, page, robots = "index, follow") {
-  const url = pageUrl(page.path);
+function apply(shell, appHtml, head) {
+  const url = pageUrl(head.path);
   const image = `${site}/og.png`;
-  let out = html;
-  out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeText(page.title)}</title>`);
-  out = out.replace(
-    /<meta name="description" content="[^"]*"/,
-    `<meta name="description" content="${escapeAttr(page.description)}"`,
-  );
-  out = out.replace(
-    /<meta name="robots" content="[^"]*"/,
-    `<meta name="robots" content="${robots}"`,
-  );
+  let out = shell;
+  out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeText(head.title)}</title>`);
+  out = setMeta(out, 'name="description"', "content", head.description);
+  out = setMeta(out, 'name="robots"', "content", head.noIndex ? "noindex, follow" : "index, follow, max-image-preview:large");
   out = out.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${url}"`);
-  out = out.replace(
-    /<meta property="og:title" content="[^"]*"/,
-    `<meta property="og:title" content="${escapeAttr(page.title)}"`,
-  );
-  out = out.replace(
-    /<meta property="og:description" content="[^"]*"/,
-    `<meta property="og:description" content="${escapeAttr(page.description)}"`,
-  );
-  out = out.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${url}"`);
-  out = out.replace(/<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${image}"`);
-  out = out.replace(
-    /<meta name="twitter:title" content="[^"]*"/,
-    `<meta name="twitter:title" content="${escapeAttr(page.title)}"`,
-  );
-  out = out.replace(
-    /<meta name="twitter:description" content="[^"]*"/,
-    `<meta name="twitter:description" content="${escapeAttr(page.description)}"`,
-  );
-  out = out.replace(
-    /<meta name="twitter:image" content="[^"]*"/,
-    `<meta name="twitter:image" content="${image}"`,
-  );
-  const ld = JSON.stringify(jsonLd(page));
+  out = setMeta(out, 'property="og:title"', "content", head.title);
+  out = setMeta(out, 'property="og:description"', "content", head.description);
+  out = setMeta(out, 'property="og:url"', "content", url);
+  out = setMeta(out, 'property="og:image"', "content", image);
+  out = setMeta(out, 'name="twitter:title"', "content", head.title);
+  out = setMeta(out, 'name="twitter:description"', "content", head.description);
+  out = setMeta(out, 'name="twitter:image"', "content", image);
+  const ld = JSON.stringify(head.jsonLd ?? {}).replace(/</g, "\\u003c");
   out = out.replace(
     /<script type="application\/ld\+json" id="bf-jsonld">[\s\S]*?<\/script>/,
-    `<script type="application/ld+json" id="bf-jsonld">${ld}</script>`,
+    () => `<script type="application/ld+json" id="bf-jsonld">${ld}</script>`,
   );
+  out = out.replace('<div id="root"></div>', () => `<div id="root">${appHtml}</div>`);
   return out;
 }
 
 const dist = resolve("dist");
 const shell = readFileSync(resolve(dist, "index.html"), "utf8");
 
-for (const page of pages) {
-  const file = resolve(dist, page.out);
+for (const path of routes) {
+  const { html, head } = await render(path);
+  if (!head) throw new Error(`No <Seo> rendered for ${path}`);
+  if (head.noIndex) throw new Error(`${path} rendered as not found. Check the route and its data.`);
+  const out = path === "/" ? "index.html" : `${path.slice(1)}/index.html`;
+  const file = resolve(dist, out);
   mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, apply(shell, page));
+  writeFileSync(file, apply(shell, html, { ...head, path }));
 }
 
+const missing = await render("/__not-found__");
 writeFileSync(
   resolve(dist, "404.html"),
-  apply(
-    shell,
-    {
-      path: "/404",
-      title: "Page not found | Blueframe Digital",
-      description: "That page isn't on the Blueframe Digital website.",
-    },
-    "noindex, follow",
-  ),
+  apply(shell, missing.html, { ...missing.head, path: "/404", noIndex: true }),
 );
 
-const urls = pages
+const lastmod = new Date().toISOString().slice(0, 10);
+function priority(path) {
+  if (path === "/") return "1.0";
+  if (path.startsWith("/work/")) return "0.6";
+  if (path.startsWith("/services/") || /^\/(web-design|websites-for)/.test(path)) return "0.9";
+  return "0.8";
+}
+
+const urls = routes
   .map(
-    (page) => `  <url>
-    <loc>${pageUrl(page.path)}</loc>
-    <changefreq>${page.path === "/" ? "weekly" : "monthly"}</changefreq>
-    <priority>${page.path === "/" ? "1.0" : page.path.startsWith("/work/") ? "0.6" : "0.8"}</priority>
+    (path) => `  <url>
+    <loc>${pageUrl(path)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${path === "/" ? "weekly" : "monthly"}</changefreq>
+    <priority>${priority(path)}</priority>
   </url>`,
   )
   .join("\n");
@@ -233,9 +121,11 @@ writeFileSync(
   resolve(dist, "robots.txt"),
   `User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: ${site}/sitemap.xml
 `,
 );
 
-console.log(`Prerendered ${pages.length} routes for ${site}`);
+rmSync(serverDir, { recursive: true, force: true });
+console.log(`Prerendered ${routes.length} routes with full HTML for ${site}`);

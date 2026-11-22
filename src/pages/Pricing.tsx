@@ -91,13 +91,13 @@ export default function Pricing() {
           serviceNode(
             "Website design",
             "Professional websites for small businesses from £199.",
-            "/pricing",
+            "/services/web-design",
             "199",
           ),
           serviceNode(
             "Online stores",
             "Online stores for small businesses from £15 a month, cheaper than Shopify.",
-            "/pricing",
+            "/services/online-stores",
             "15",
           ),
           serviceNode(

@@ -1,7 +1,7 @@
 export const SITE_NAME = "Blueframe Digital";
 
 export const SITE_URL = (
-  import.meta.env.VITE_SITE_URL || "https://nyelemma.github.io/Blueframe-Digital"
+  import.meta.env.VITE_SITE_URL || "https://www.blueframedigital.co.uk"
 ).replace(/\/$/, "");
 
 export const WHATSAPP_DISPLAY = "07943 869697";
@@ -53,44 +53,44 @@ export type PageMeta = {
 export const PAGE_META = {
   home: {
     path: "/",
-    title: "Blueframe Digital | Web Design for Small Businesses",
+    title: "Web Design Morecambe & Lancaster | Websites from £199",
     description:
-      "Professional websites for small businesses from £199. Blueframe Digital creates modern, fast and SEO-ready websites designed to help local businesses grow.",
+      "Affordable web design for small businesses in Morecambe, Lancaster and Lancashire. Modern, mobile-first, SEO-ready websites from £199, without agency prices.",
   },
   work: {
     path: "/work",
-    title: "Our Work | Small Business Websites | Blueframe Digital",
+    title: "Web Design Portfolio | Lancashire Small Business Websites",
     description:
-      "Websites designed by Blueframe Digital for trades, clubs, coaches and other small businesses. Each project links to the live site.",
+      "Websites we have designed for trades, football clubs, coaches, photographers and charities in Morecambe, Lancashire and beyond, each linked to the live site.",
   },
   services: {
     path: "/services",
-    title: "Services | Websites, Online Stores & Social Media | Blueframe Digital",
+    title: "Web Design, Online Store & Social Media Services | Blueframe Digital",
     description:
-      "Website design from £199, online stores from £15 a month, custom websites, and social media management from £99 a month for small businesses.",
+      "Website design from £199, online stores from £15 a month, custom websites and social media management from £99 a month for small businesses.",
   },
   social: {
     path: "/services/social-media",
-    title: "Social Media Management for Small Businesses | Blueframe Digital",
+    title: "Social Media Management for Small Businesses UK | From £99/month",
     description:
-      "Social media management for small businesses from £99 a month. Blueframe Digital plans, writes and posts so you can stay active online.",
+      "Affordable social media management for small businesses from £99 a month. We plan, create, caption and post your content so your business stays active online.",
   },
   pricing: {
     path: "/pricing",
-    title: "Website Pricing from £199 | Blueframe Digital",
+    title: "Website Design Prices UK | Websites from £199 | Blueframe Digital",
     description:
-      "Websites from £199, online stores from £15 a month, and social media management from £99 a month. Clear starting prices before any work begins.",
+      "Clear website design prices: websites from £199, business websites from £399, online stores from £15 a month and social media management from £99 a month.",
   },
   about: {
     path: "/about",
-    title: "About Blueframe Digital | Websites for Small Businesses",
+    title: "About Blueframe Digital | Small Business Web Designers, Lancashire",
     description:
-      "Blueframe Digital builds professional websites for small businesses. Studio quality, without the agency price tag.",
+      "Blueframe Digital designs websites for small businesses in Morecambe, Lancaster and Lancashire. Big agency quality, small business approach, upfront pricing.",
   },
   contact: {
     path: "/contact",
-    title: "Contact Blueframe Digital | Start a Website",
+    title: "Contact Blueframe Digital | Get a Website Quote",
     description:
-      "Start a website, online store or social media project with Blueframe Digital. Email us or send a WhatsApp message.",
+      "Get a clear quote for a website, online store or social media management. Message Blueframe Digital on WhatsApp or send an enquiry, and we'll take it from there.",
   },
 } as const satisfies Record<string, PageMeta>;

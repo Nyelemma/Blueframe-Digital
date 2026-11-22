@@ -16,7 +16,7 @@ export default function Project() {
   if (!project) return <NotFound />;
 
   const related = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
-  const title = `${project.name} | Work by ${SITE_NAME}`;
+  const title = `${project.name} Website Design | Work by ${SITE_NAME}`;
   const host = displayHost(project.url);
   const caseStudy = project.caseStudy;
   const alt =
@@ -28,7 +28,7 @@ export default function Project() {
     <>
       <Seo
         title={title}
-        description={project.summary}
+        description={`${project.summary} A website designed and built by ${SITE_NAME}.`}
         path={`/work/${project.slug}`}
         jsonLd={graph(
           organizationNode(),

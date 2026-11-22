@@ -1,6 +1,7 @@
 import data from "../content/services.json";
 import type { IconName } from "../components/Icons";
 import type { ProjectCategory } from "./projects";
+import type { Faq } from "./landings";
 
 export type ServiceTier = {
   name: string;
@@ -28,6 +29,7 @@ export type Service = {
   cta: string;
   ctaTo: string;
   workCategories: ProjectCategory[];
+  faqs: Faq[];
 };
 
 export const services = data as Service[];

@@ -8,7 +8,7 @@ function siteUrl() {
     if (host) return `https://${host}`.replace(/\/$/, "");
   }
   return (
-    process.env.VITE_SITE_URL || "https://nyelemma.github.io/Blueframe-Digital"
+    process.env.VITE_SITE_URL || "https://www.blueframedigital.co.uk"
   ).replace(/\/$/, "");
 }
 

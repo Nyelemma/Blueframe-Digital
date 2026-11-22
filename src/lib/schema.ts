@@ -1,6 +1,16 @@
-import { absoluteUrl, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "./site";
+import { absoluteUrl, SITE_NAME, SITE_URL, SOCIAL_LINKS, WHATSAPP_URL } from "./site";
 
-const areaServed = { "@type": "Country", name: "United Kingdom" };
+const place = (name: string, type = "City") => ({ "@type": type, name });
+
+/** Towns we target for local search, plus the rest of the UK. */
+const areaServed = [
+  place("Morecambe"),
+  place("Lancaster"),
+  place("Heysham"),
+  place("Carnforth"),
+  place("Lancashire", "AdministrativeArea"),
+  place("United Kingdom", "Country"),
+];
 
 export function organizationNode() {
   return {
@@ -11,19 +21,25 @@ export function organizationNode() {
     logo: absoluteUrl("/brand/blueframe-logo-light.png"),
     image: absoluteUrl("/og.png"),
     description:
-      "Blueframe Digital designs modern, fast websites for small and local businesses, with websites from £199, online stores from £15 a month, and social media management from £99 a month.",
+      "Blueframe Digital is a web design studio for small businesses in Morecambe, Lancaster and across Lancashire, with websites from £199, online stores from £15 a month, and social media management from £99 a month.",
     areaServed,
-    sameAs: SOCIAL_LINKS.map((social) => social.href),
+    telephone: "+447943869697",
+    sameAs: [...SOCIAL_LINKS.map((social) => social.href), WHATSAPP_URL],
     priceRange: "££",
+    currenciesAccepted: "GBP",
     knowsAbout: [
       "Web design",
-      "Small business websites",
+      "Website design for small businesses",
       "Local SEO",
       "Online stores",
+      "Ecommerce",
       "Social media management",
+      "Football club websites",
+      "Websites for tradesmen",
     ],
     address: {
       "@type": "PostalAddress",
+      addressRegion: "Lancashire",
       addressCountry: "GB",
     },
   };
@@ -36,7 +52,7 @@ export function websiteNode() {
     name: SITE_NAME,
     url: `${SITE_URL}/`,
     description:
-      "Professional websites for small businesses from £199. Modern, fast and SEO-ready.",
+      "Affordable web design for small businesses in Morecambe, Lancaster and Lancashire. Websites from £199.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-GB",
   };
@@ -58,6 +74,7 @@ export function serviceNode(name: string, description: string, path: string, low
   return {
     "@type": "Service",
     name,
+    serviceType: name,
     description,
     url: absoluteUrl(path),
     provider: { "@id": `${SITE_URL}/#organization` },
@@ -68,6 +85,31 @@ export function serviceNode(name: string, description: string, path: string, low
       ...(lowPrice ? { lowPrice } : {}),
       availability: "https://schema.org/InStock",
     },
+  };
+}
+
+export function faqNode(faqs: { q: string; a: string }[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+}
+
+export function articleNode(headline: string, description: string, path: string) {
+  return {
+    "@type": "Article",
+    headline,
+    description,
+    url: absoluteUrl(path),
+    mainEntityOfPage: absoluteUrl(path),
+    inLanguage: "en-GB",
+    author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    image: absoluteUrl("/og.png"),
   };
 }
 

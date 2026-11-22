@@ -4,6 +4,7 @@ import WhatsAppButton from "./WhatsAppButton";
 import Icon from "./Icons";
 import { FOOTER_LINKS, SOCIAL_LINKS } from "../lib/site";
 import { servicePath, services } from "../lib/services";
+import { landings } from "../lib/landings";
 
 const linkClass =
   "inline-flex min-h-11 items-center text-slate-600 transition hover:text-ink dark:text-slate-400 dark:hover:text-white";
@@ -11,7 +12,7 @@ const linkClass =
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white dark:border-white/10 dark:bg-night">
-      <div className="mx-auto grid max-w-[1120px] gap-10 px-5 py-14 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-[1120px] gap-10 px-5 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.2fr_1fr_1.1fr_1fr]">
         <div>
           <Logo className="h-20 w-auto" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
@@ -46,9 +47,23 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
+        <nav aria-label="Areas and industries">
+          <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">
+            Areas &amp; industries
+          </h2>
+          <ul className="mt-2 grid gap-y-1 text-sm">
+            {landings.map((landing) => (
+              <li key={landing.slug}>
+                <Link to={`/${landing.slug}`} className={linkClass}>
+                  {landing.kind === "guide" ? "Website cost guide" : landing.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <nav aria-label="Footer">
           <h2 className="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Company</h2>
-          <ul className="mt-2 grid grid-cols-2 gap-x-8 gap-y-1 text-sm">
+          <ul className="mt-2 grid grid-cols-2 gap-x-8 gap-y-1 text-sm lg:grid-cols-1">
             {FOOTER_LINKS.map((link) => (
               <li key={link.to}>
                 <Link to={link.to} className={linkClass}>

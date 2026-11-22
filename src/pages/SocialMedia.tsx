@@ -6,7 +6,11 @@ import FinalCta from "../components/FinalCta";
 import Icon from "../components/Icons";
 import { PAGE_META } from "../lib/site";
 import { primaryBtnLight } from "../lib/classes";
-import { breadcrumbNode, graph, organizationNode, serviceNode } from "../lib/schema";
+import { breadcrumbNode, faqNode, graph, organizationNode, serviceNode } from "../lib/schema";
+import FaqList from "../components/FaqList";
+import { serviceBySlug } from "../lib/services";
+
+const faqs = serviceBySlug("social-media")?.faqs ?? [];
 
 const services = [
   {
@@ -57,6 +61,7 @@ export default function SocialMedia() {
             "/services/social-media",
             "99",
           ),
+          faqNode(faqs),
           breadcrumbNode([
             { name: "Home", path: "/" },
             { name: "Services", path: "/services" },
@@ -110,6 +115,7 @@ export default function SocialMedia() {
           ))}
         </ul>
       </section>
+      <FaqList faqs={faqs} />
       <FinalCta />
     </>
   );

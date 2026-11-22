@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { absoluteUrl, SITE_NAME } from "../lib/site";
 
 type Props = {
@@ -8,6 +8,11 @@ type Props = {
   jsonLd?: Record<string, unknown>;
   noIndex?: boolean;
 };
+
+export type HeadData = Props;
+
+/** Set only during build-time prerendering, so the page's meta can be written into static HTML. */
+export const HeadContext = createContext<{ current: HeadData | null } | null>(null);
 
 function upsertMeta(attribute: "name" | "property", key: string, content: string) {
   let element = document.head.querySelector<HTMLMetaElement>(
@@ -33,6 +38,8 @@ function upsertLink(rel: string, href: string) {
 
 export default function Seo({ title, description, path, jsonLd, noIndex }: Props) {
   const ld = JSON.stringify(jsonLd ?? null);
+  const head = useContext(HeadContext);
+  if (head) head.current = { title, description, path, jsonLd, noIndex };
 
   useEffect(() => {
     const url = absoluteUrl(path);
